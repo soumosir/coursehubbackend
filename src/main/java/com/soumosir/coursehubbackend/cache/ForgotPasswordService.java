@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ForgotPasswordService {
 
 
-    private LoadingCache<String, String> passwordCodeCache;
+    private final LoadingCache<String, String> passwordCodeCache;
 
     public ForgotPasswordService() {
         super();
@@ -25,8 +25,8 @@ public class ForgotPasswordService {
                 });
     }
 
-    private String generateCode(){
-        String random = UUID.randomUUID().toString().replaceAll("-","");
+    private String generateCode() {
+        String random = UUID.randomUUID().toString().replaceAll("-", "");
         return random;
     }
 
@@ -36,13 +36,12 @@ public class ForgotPasswordService {
         return random;
     }
 
-    public boolean verify(String email,String code){
-        try{
-            if(passwordCodeCache.get(email).equals(code)){
+    public boolean verify(String email, String code) {
+        try {
+            if (passwordCodeCache.get(email).equals(code)) {
                 return true;
             }
-        }
-        catch (ExecutionException e) {
+        } catch (ExecutionException e) {
             return false;
         }
         return false;

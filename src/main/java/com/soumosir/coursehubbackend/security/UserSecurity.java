@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 public class UserSecurity {
     public boolean hasUsername(Authentication authentication, String username) {
 
-        if(username.equals(authentication.getPrincipal().toString()) || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-            return true;
-        }
-        return false;
+        return username.equals(authentication.getPrincipal().toString()) || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 }

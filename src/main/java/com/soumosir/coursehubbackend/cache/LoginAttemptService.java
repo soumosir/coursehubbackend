@@ -2,8 +2,8 @@ package com.soumosir.coursehubbackend.cache;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
-import org.springframework.stereotype.Service;
 import com.google.common.cache.LoadingCache;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginAttemptService {
 
     private final int MAX_ATTEMPT = 10;
-    private LoadingCache<String, Integer> attemptsCache;
+    private final LoadingCache<String, Integer> attemptsCache;
 
     public LoginAttemptService() {
         super();
@@ -35,7 +35,7 @@ public class LoginAttemptService {
         } catch (ExecutionException e) {
             attempts = 0;
         }
-        if(attempts<=MAX_ATTEMPT){
+        if (attempts <= MAX_ATTEMPT) {
             attempts++;
             attemptsCache.put(key, attempts);
         }

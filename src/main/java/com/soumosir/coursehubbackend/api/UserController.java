@@ -43,28 +43,24 @@ public class UserController {
     private final EmailService emailService;
 
     @Autowired
-    protected  ForgotPasswordService forgotPasswordService;
+    protected ForgotPasswordService forgotPasswordService;
 
     @GetMapping("/users")
-    public ResponseEntity<List<AppUserRest>> getUsers(){
-        return ResponseEntity.ok().body(userService.getUsers().stream().map(appUser ->
-                new AppUserRest(appUser)).collect(Collectors.toList()));
+    public ResponseEntity<List<AppUserRest>> getUsers() {
+        return ResponseEntity.ok().body(userService.getUsers().stream().map(AppUserRest::new).collect(Collectors.toList()));
     }
 
     @GetMapping("/user/{username}")
-    public ResponseEntity<AppUserRest> getUser(@PathVariable String username)
-    {
+    public ResponseEntity<AppUserRest> getUser(@PathVariable String username) {
         return ResponseEntity.ok().body(new AppUserRest(userService.getUser(username)));
-
     }
 
     @PutMapping("/user/{username}")
-    public ResponseEntity<AppUserRest> updateUser(@PathVariable String username,@RequestBody AppUser appUser,HttpServletResponse response) throws IOException {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/"+username).toUriString());
+    public ResponseEntity<AppUserRest> updateUser(@PathVariable String username, @RequestBody AppUser appUser, HttpServletResponse response) throws IOException {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/" + username).toUriString());
         try {
             return ResponseEntity.created(uri).body(new AppUserRest(userService.updateUser(username, appUser)));
-        }
-        catch(Exception exception) {
+        } catch (Exception exception) {
             response.setHeader("error", exception.getMessage());
             response.setStatus(FORBIDDEN.value());
             Map<String, String> error = new HashMap<>();
@@ -81,8 +77,7 @@ public class UserController {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/register").toUriString());
         try {
             return ResponseEntity.created(uri).body(new AppUserRest(userService.saveUser(appUser)));
-        }
-        catch(Exception exception) {
+        } catch (Exception exception) {
             response.setHeader("error", exception.getMessage());
             response.setStatus(FORBIDDEN.value());
             Map<String, String> error = new HashMap<>();
@@ -90,24 +85,21 @@ public class UserController {
             response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
             new ObjectMapper().writeValue(response.getOutputStream(), error);
         }
-
         return ResponseEntity.badRequest().build();
 
     }
 
     @DeleteMapping("/user/{username}")
     public ResponseEntity<?> deleteUser(@PathVariable String username, HttpServletResponse response) throws IOException {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/"+username).toUriString());
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/" + username).toUriString());
         try {
             userService.deleteUser(username);
-
             return ResponseEntity.ok().build();
-        }
-        catch(Exception exception) {
+        } catch (Exception exception) {
             response.setHeader("error", exception.getMessage());
             response.setStatus(FORBIDDEN.value());
             Map<String, String> error = new HashMap<>();
-            error.put("error_message", exception.getMessage() + " ::  Username doesnt exists!");
+            error.put("error_message", exception.getMessage() + " ::  Username doesn't exists!");
             response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
             new ObjectMapper().writeValue(response.getOutputStream(), error);
         }
@@ -115,42 +107,41 @@ public class UserController {
     }
 
     @GetMapping("/resetpassword/{email}")
-    public ResponseEntity<String> resetUserPasswordCodeRequest(@PathVariable String email){
+    public ResponseEntity<String> resetUserPasswordCodeRequest(@PathVariable String email) {
 
         AppUser appUser = userService.getUserByEmail(email);
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/resetpassword/"+email).toUriString());
-        String code  = forgotPasswordService.setRandomCode(email);
-        emailService.sendEmail(appUser.getUsername(),email,code);
-        return ResponseEntity.ok().body("Email sent to "+email);
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/resetpassword/" + email).toUriString());
+        String code = forgotPasswordService.setRandomCode(email);
+        emailService.sendEmail(appUser.getUsername(), email, code);
+        return ResponseEntity.ok().body("Email sent to " + email);
     }
 
     @PostMapping("/resetpassword")
-    public ResponseEntity<String> resetUserPassword(@RequestBody ForgetPasswordAppUser forgetPasswordAppUser,HttpServletResponse response) throws IOException {
+    public ResponseEntity<String> resetUserPassword(@RequestBody ForgetPasswordAppUser forgetPasswordAppUser, HttpServletResponse response) throws IOException {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/resetpassword").toUriString());
-       try {
-           userService.resetPassword(forgetPasswordAppUser);
-           return ResponseEntity.created(uri).body("Password has been reset!");
-       }
-       catch(Exception exception) {
-           response.setHeader("error", exception.getMessage());
-           response.setStatus(FORBIDDEN.value());
-           Map<String, String> error = new HashMap<>();
-           error.put("error_message", exception.getMessage());
-           response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
-           new ObjectMapper().writeValue(response.getOutputStream(), error);
-       }
+        try {
+            userService.resetPassword(forgetPasswordAppUser);
+            return ResponseEntity.created(uri).body("Password has been reset!");
+        } catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            response.setStatus(FORBIDDEN.value());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
         return ResponseEntity.badRequest().build();
     }
 
 
     @PostMapping("/role/save")
-    public ResponseEntity<Role> saveUser(@RequestBody Role role){
+    public ResponseEntity<Role> saveUser(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
 
     @PostMapping("/role/addtouser")
-    public ResponseEntity<?> saveUser(@RequestBody RoleToAppUserForm form){
+    public ResponseEntity<?> saveUser(@RequestBody RoleToAppUserForm form) {
         userService.addRoleToUser(form.username, form.roleName);
         return ResponseEntity.ok().build();
     }
@@ -158,7 +149,7 @@ public class UserController {
     @GetMapping("/token/refresh")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
-        if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             try {
                 String refresh_token = authorizationHeader.substring("Bearer ".length());
                 Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
@@ -177,7 +168,7 @@ public class UserController {
                 tokens.put("refresh_token", refresh_token);
                 response.setContentType(MediaType.APPLICATION_JSON_VALUE);
                 new ObjectMapper().writeValue(response.getOutputStream(), tokens);
-            }catch (Exception exception) {
+            } catch (Exception exception) {
                 response.setHeader("error", exception.getMessage());
                 response.setStatus(FORBIDDEN.value());
                 //response.sendError(FORBIDDEN.value());
