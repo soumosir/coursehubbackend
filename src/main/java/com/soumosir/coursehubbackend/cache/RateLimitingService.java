@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class RateLimitingService {
 
     private final int MAX_ATTEMPT = 120;
-    private LoadingCache<String, Integer> apiCallCache;
+    private final LoadingCache<String, Integer> apiCallCache;
 
     public RateLimitingService() {
         super();
@@ -31,7 +31,7 @@ public class RateLimitingService {
         } catch (ExecutionException e) {
             attempts = 0;
         }
-        if(attempts<=MAX_ATTEMPT){
+        if (attempts <= MAX_ATTEMPT) {
             attempts++;
             apiCallCache.put(key, attempts);
         }

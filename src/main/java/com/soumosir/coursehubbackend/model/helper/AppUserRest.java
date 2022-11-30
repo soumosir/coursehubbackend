@@ -1,6 +1,7 @@
 package com.soumosir.coursehubbackend.model.helper;
 
 import com.soumosir.coursehubbackend.model.AppUser;
+import com.soumosir.coursehubbackend.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,7 @@ public class AppUserRest {
         this.name = appUser.getName();
         this.username = appUser.getUsername();
         this.email = appUser.getEmail();
-        this.roles = appUser.getRoles().stream().map(role -> role.getName()).collect(Collectors.toList());
+        this.roles = appUser.getRoles().stream().map(Role::getName).collect(Collectors.toList());
     }
 
 }

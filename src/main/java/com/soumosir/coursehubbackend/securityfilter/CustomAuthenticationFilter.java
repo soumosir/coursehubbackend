@@ -30,15 +30,12 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
-
+    private final LoginAttemptService loginAttemptService;
     @Autowired
     private HttpServletRequest request;
 
 
-    private final LoginAttemptService loginAttemptService;
-
-
-    public CustomAuthenticationFilter(AuthenticationManager authenticationManager,LoginAttemptService loginAttemptService){
+    public CustomAuthenticationFilter(AuthenticationManager authenticationManager, LoginAttemptService loginAttemptService) {
         this.authenticationManager = authenticationManager;
         this.loginAttemptService = loginAttemptService;
     }
@@ -48,10 +45,9 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        log.info("Attempting login for Username : {} ,",username);
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password);
+        log.info("Attempting login for Username : {} ,", username);
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         return authenticationManager.authenticate(authenticationToken);
-
     }
 
     @Override
@@ -80,7 +76,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             loginAttemptService.loginSucceeded(xfHeader.split(",")[0]);
         }
 
-        log.info("User {} successfully logged in ",user.getUsername());
+        log.info("User {} successfully logged in ", user.getUsername());
 
         Map<String, String> tokens = new HashMap<>();
         tokens.put("access_token", access_token);
@@ -94,8 +90,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         super.unsuccessfulAuthentication(request, response, failed);
-//        custom logic to prevent user to login more than 10 times
-        log.error("User on ip {} entered wrong username and password or is blocked ",request.getRemoteAddr());
+//        custom logic to prevent user to login more than 3 times
+        log.error("User on ip {} entered wrong username and password or is blocked ", request.getRemoteAddr());
         final String xfHeader = request.getHeader("X-Forwarded-For");
         if (xfHeader == null) {
             loginAttemptService.loginFailed(request.getRemoteAddr());
