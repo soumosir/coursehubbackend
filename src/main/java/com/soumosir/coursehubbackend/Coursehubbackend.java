@@ -1,7 +1,7 @@
 package com.soumosir.coursehubbackend;
 
-import com.soumosir.coursehubbackend.model.AppUser;
-import com.soumosir.coursehubbackend.model.Role;
+import com.soumosir.coursehubbackend.model.*;
+import com.soumosir.coursehubbackend.service.CourseService;
 import com.soumosir.coursehubbackend.service.EmailService;
 import com.soumosir.coursehubbackend.service.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -33,20 +33,10 @@ public class Coursehubbackend {
     public RequestContextListener requestContextListener() {
         return new RequestContextListener();
     }
-//	@Bean
-//	public LoginAttemptService loginAttemptService(){
-//		return new LoginAttemptService();
-//	};
 
 	@Bean
-	CommandLineRunner run(UserService userService, EmailService emailService,CourseService courseService) {
+	CommandLineRunner run(UserService userService, EmailService emailService, CourseService courseService) {
 		return args -> {
-			userService.saveRole(new Role(null,"ROLE_USER"));
-			userService.saveRole(new Role(null,"ROLE_ADMIN"));
-
-    @Bean
-    CommandLineRunner run(UserService userService, EmailService emailService) {
-        return args -> {
             userService.saveRole(new Role(null, "ROLE_USER"));
             userService.saveRole(new Role(null, "ROLE_ADMIN"));
 
