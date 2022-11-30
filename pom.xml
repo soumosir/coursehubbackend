@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.soumosir</groupId>
-	<artifactId>bookmydream</artifactId>
+	<artifactId>coursehubbackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookmydream</name>
+	<name>coursehubbackend</name>
 	<description>Spring java backend app</description>
 	<properties>
 		<java.version>11</java.version>

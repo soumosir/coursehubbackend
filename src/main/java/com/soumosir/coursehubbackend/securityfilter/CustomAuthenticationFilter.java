@@ -94,7 +94,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         super.unsuccessfulAuthentication(request, response, failed);
-//        custom logic to prevent user to login more than 3 times
+//        custom logic to prevent user to login more than 10 times
         log.error("User on ip {} entered wrong username and password or is blocked ",request.getRemoteAddr());
         final String xfHeader = request.getHeader("X-Forwarded-For");
         if (xfHeader == null) {

@@ -63,27 +63,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(DELETE, "/api/role/**").hasAnyAuthority("ROLE_ADMIN");
 
 
-        http.authorizeRequests().antMatchers(GET, "/api/hall/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(POST, "/api/hall/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(PUT, "/api/hall/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(DELETE, "/api/hall/**").hasAnyAuthority("ROLE_ADMIN");
-
-        http.authorizeRequests().antMatchers(GET, "/api/screening/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(POST, "/api/screening/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(PUT, "/api/screening/**").hasAnyAuthority("ROLE_ADMIN");
-        http.authorizeRequests().antMatchers(DELETE, "/api/screening/**").hasAnyAuthority("ROLE_ADMIN");
-
-        http.authorizeRequests().antMatchers(GET, "/api/reservation/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(POST, "/api/reservation/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(PUT, "/api/reservation/{id}/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(DELETE, "/api/reservation/{id}/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-
-
-        http.authorizeRequests().antMatchers(GET, "/api/movie/**").hasAnyAuthority("ROLE_ADMIN","ROLE_MANAGER","ROLE_USER");
-        http.authorizeRequests().antMatchers(POST, "/api/movie/**").hasAnyAuthority("ROLE_ADMIN","ROLE_MANAGER");
-        http.authorizeRequests().antMatchers(PUT, "/api/movie/**").hasAnyAuthority("ROLE_ADMIN","ROLE_MANAGER");
-        http.authorizeRequests().antMatchers(DELETE, "/api/movie/**").hasAnyAuthority("ROLE_ADMIN","ROLE_MANAGER");
-
+        http.authorizeRequests().antMatchers(GET, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+        http.authorizeRequests().antMatchers(POST, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+        http.authorizeRequests().antMatchers(PUT, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+        http.authorizeRequests().antMatchers(DELETE, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
 
 
         http.authorizeRequests().anyRequest().authenticated();

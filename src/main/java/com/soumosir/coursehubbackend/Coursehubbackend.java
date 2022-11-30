@@ -11,9 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.request.RequestContextListener;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.*;
 
 @SpringBootApplication
 public class Coursehubbackend {
@@ -37,7 +38,7 @@ public class Coursehubbackend {
 //	};
 
 	@Bean
-	CommandLineRunner run(UserService userService, EmailService emailService) {
+	CommandLineRunner run(UserService userService, EmailService emailService,CourseService courseService) {
 		return args -> {
 			userService.saveRole(new Role(null,"ROLE_USER"));
 			userService.saveRole(new Role(null,"ROLE_ADMIN"));
@@ -48,6 +49,45 @@ public class Coursehubbackend {
 			AppUser appUser4  = userService.saveUser(new AppUser(null,"Vincent Yu","vin","soumosirdutta@gmail.com","Maryland@1234",new ArrayList<>()));
 
 			userService.addRoleToUser("sdutta","ROLE_ADMIN");
+
+			Map<String,List<String>> questions = new HashMap<>();
+			Map<String,String> answers = new HashMap<>();
+
+			Exam exam1 = courseService.saveExam(new Exam(null,"Quiz name 1","QUIZ",120L,questions.toString(),answers.toString()));
+			Exam exam2 = courseService.saveExam(new Exam(null,"Final exam name 1","EXAM",120L,questions.toString(),answers.toString()));
+
+			Content content1 = courseService.saveContent(new Content(
+					null, "lecture 1","video","google.com"
+			));
+			Content content2 = courseService.saveContent(new Content(
+					null, "lecture pdf","image","google.com"
+			));
+
+			Course course1 = courseService.saveCourse(new Course(null,"Data and Algo","ENPM613","description 123",appUser1,
+					Timestamp.valueOf(LocalDateTime.now()),
+					Timestamp.valueOf(LocalDateTime.now()),
+					60L,
+					null,
+					null,
+					null));
+
+			Course course2 = courseService.saveCourse(new Course(null,"Human computing","ENPM312","himans  123",appUser1,
+					Timestamp.valueOf(LocalDateTime.now()),
+					Timestamp.valueOf(LocalDateTime.now()),
+					60L,
+					null,
+					null,
+					null));
+
+			courseService.addContent(content1.getId(),course1.getId());
+			courseService.addContent(content2.getId(),course1.getId());
+
+
+			courseService.addExam(exam1.getId(),course1.getId());
+			courseService.addExam(exam2.getId(),course2.getId());
+
+
+
 
 //			emailService.sendEmail("ABC TEST","abc.com","123");
 		};
