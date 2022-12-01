@@ -1,7 +1,9 @@
 package com.soumosir.coursehubbackend.service;
 
 import com.soumosir.coursehubbackend.model.*;
+import org.json.JSONException;
 
+import java.util.Arrays;
 import java.util.List;
 
 public interface CourseService {
@@ -29,5 +31,13 @@ public interface CourseService {
     List<Course> getEnrolledCourses(String toString);
 
     List<Course> getWishlistCourses(String toString);
+
+    ExamResult submitExam(String username,Long examId, String answers) throws JSONException;
+
+    void unenrollCourse(String toString, Long courseId);
+
+    void removeWishlist(String toString, Long wishlistId);
+
+    Course getCourse(Long id);
 }
 

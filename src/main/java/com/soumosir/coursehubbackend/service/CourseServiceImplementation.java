@@ -1,21 +1,17 @@
 package com.soumosir.coursehubbackend.service;
 
+import com.google.gson.Gson;
 import com.soumosir.coursehubbackend.exceptions.ResourceNotFoundException;
-import com.soumosir.coursehubbackend.model.AppUser;
-import com.soumosir.coursehubbackend.model.Content;
-import com.soumosir.coursehubbackend.model.Course;
-import com.soumosir.coursehubbackend.model.Exam;
-import com.soumosir.coursehubbackend.repo.AppUserRepo;
-import com.soumosir.coursehubbackend.repo.ContentRepo;
-import com.soumosir.coursehubbackend.repo.CourseRepo;
-import com.soumosir.coursehubbackend.repo.ExamRepo;
+import com.soumosir.coursehubbackend.model.*;
+import com.soumosir.coursehubbackend.repo.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 @Service
@@ -28,6 +24,7 @@ public class CourseServiceImplementation implements CourseService{
     private final ExamRepo examRepo;
     private final ContentRepo contentRepo;
     private final AppUserRepo appUserRepo;
+    private final ResultRepo resultRepo;
 
 
     @Override
@@ -126,6 +123,10 @@ public class CourseServiceImplementation implements CourseService{
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
 
+        if(course.getEnrolledUsers().contains(appUser)){
+            new ResourceNotFoundException("Course already enrolled ");
+        }
+
         if(course.getEnrolledUsers().size()<course.getTotalSeats()) {
             log.info("Enrol to course to user  -> " + username + " -> " + courseId);
             course.getEnrolledUsers().add(appUser);
@@ -141,6 +142,9 @@ public class CourseServiceImplementation implements CourseService{
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
         log.info("Add to wishlist course to user  -> " + username + " -> " + courseId);
+        if(course.getWishlistUsers().contains(appUser)){
+            new ResourceNotFoundException("Wishlist already added ");
+        }
         course.getWishlistUsers().add(appUser);
     }
 
@@ -154,5 +158,78 @@ public class CourseServiceImplementation implements CourseService{
     public List<Course> getWishlistCourses(String username) {
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         return courseRepo.findByWishlistUsers(appUser);
+    }
+
+    private HashMap<String, String> jsonToMap(String t) throws JSONException {
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        JSONObject jObject = new JSONObject(t);
+        Iterator<?> keys = jObject.keys();
+
+        while( keys.hasNext() ){
+            String key = (String)keys.next();
+            String value = jObject.getString(key);
+            map.put(key, value);
+
+        }
+
+        return map;
+    }
+
+    @Override
+    public ExamResult submitExam(String username,Long examId, String userAnswers) throws JSONException {
+
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Exam exam  = examRepo.findById(examId).orElseThrow(() ->
+                new ResourceNotFoundException(String.format("exam id {} not present!",examId))
+        );
+
+        String correctAnswers = exam.getAnswers();
+
+        HashMap<String,String> userAnswersMap = jsonToMap(userAnswers);
+        HashMap<String,String> correctAnswersMap = jsonToMap(correctAnswers);
+        Long marks = 0L;
+        for (var entry : correctAnswersMap.entrySet()) {
+
+            if (userAnswersMap.containsKey(entry.getKey())){
+                var ans = userAnswersMap.get(entry.getKey());
+                if(ans.equals(entry.getValue())){
+                    marks+=1;
+                }
+            }
+        }
+        ExamResult examResult = new ExamResult(null,marks,appUser,exam);
+        return resultRepo.save(examResult);
+    }
+
+    @Override
+    public void unenrollCourse(String username, Long courseId) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
+
+        if(!course.getEnrolledUsers().contains(appUser)){
+            new ResourceNotFoundException("Course not  enrolled ");
+        }
+        course.getEnrolledUsers().remove(appUser);
+
+    }
+
+    @Override
+    public void removeWishlist(String username, Long courseId) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
+        log.info("Add to wishlist course to user  -> " + username + " -> " + courseId);
+        if(!course.getWishlistUsers().contains(appUser)){
+            new ResourceNotFoundException("Wishlist not added ");
+        }
+        course.getWishlistUsers().remove(appUser);
+    }
+
+    @Override
+    public Course getCourse(Long id) {
+        Course course =  courseRepo.findById(id).orElseThrow(()->{
+            throw new ResourceNotFoundException("course not found");
+        });
+        return course;
     }
 }

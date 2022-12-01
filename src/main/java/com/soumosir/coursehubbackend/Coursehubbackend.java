@@ -48,7 +48,16 @@ public class Coursehubbackend {
             userService.addRoleToUser("sdutta", "ROLE_ADMIN");
 
 			Map<String,List<String>> questions = new HashMap<>();
+			questions.put("what is 1+1?",List.of("3","2","1","0"));
+			questions.put("what is array?",List.of("DS","wall","io","boolean"));
+			questions.put("how many bytes is  char?",List.of("3","2","1","0"));
+			questions.put("what is 1+9?",List.of("3","2","1","10"));
+
 			Map<String,String> answers = new HashMap<>();
+			answers.put("what is 1+1?","2");
+			answers.put("what is array?","DS");
+			answers.put("how many bytes is  char?","1");
+			answers.put("what is 1+9?","10");
 
 			Exam exam1 = courseService.saveExam(new Exam(null,"Quiz name 1","QUIZ",120L,questions.toString(),answers.toString()));
 			Exam exam2 = courseService.saveExam(new Exam(null,"Final exam name 1","EXAM",120L,questions.toString(),answers.toString()));
@@ -60,20 +69,27 @@ public class Coursehubbackend {
 					null, "lecture pdf","image","google.com"
 			));
 
-			Course course1 = courseService.saveCourse(new Course(null,"Data and Algo","ENPM613","description 123",appUser1,
+			Course course1 = courseService.saveCourse(new Course(null,"Data and Algo","ENPM809W","description 123",appUser1,
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
 					null,
 					null,
-					null,null));
+					null,List.of(appUser2)));
 
 			Course course2 = courseService.saveCourse(new Course(null,"Human computing","ENPM312","himans  123",appUser1,
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
 					null,
-					null,null,null));
+					null,List.of(appUser2),List.of(appUser3)));
+
+			Course course3 = courseService.saveCourse(new Course(null,"Software design","ENPM613","himans  123",appUser1,
+					Timestamp.valueOf(LocalDateTime.now()),
+					Timestamp.valueOf(LocalDateTime.now()),
+					60L,
+					null,
+					null,List.of(appUser4),List.of(appUser3)));
 
 			courseService.addContent(content1.getId(),course1.getId());
 			courseService.addContent(content2.getId(),course1.getId());

@@ -52,11 +52,40 @@ public class CourseController {
         return ResponseEntity.ok().body(courseService.getCourses().stream().map(CourseResponseRest::new).collect(Collectors.toList()));
     }
 
+    @GetMapping("/course/{id}")
+    public ResponseEntity<CourseResponseRest> getCourses(@PathVariable Long id){
+        Course course  = courseService.getCourse(id);
+        CourseResponseRest crr = new CourseResponseRest(course,true);
+        return ResponseEntity.ok().body(crr);
+    }
+
+//    @GetMapping("/user/{username}")
+//    public ResponseEntity<AppUserRest> getUser(@PathVariable String username) {
+//        return ResponseEntity.ok().body(new AppUserRest(userService.getUser(username)));
+//    }
+
 
     @PutMapping("/course/enrolluser")
     public ResponseEntity<?> enrollCourse(@RequestBody EnrollCourseForm form, Authentication authentication, HttpServletResponse response) throws IOException {
         try {
             courseService.enrollCourse(authentication.getPrincipal().toString(), form.courseId);
+
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @DeleteMapping("/course/unenrolluser")
+    public ResponseEntity<?> unenrollCourse(@RequestBody EnrollCourseForm form, Authentication authentication, HttpServletResponse response) throws IOException {
+        try {
+            courseService.unenrollCourse(authentication.getPrincipal().toString(), form.courseId);
 
             return ResponseEntity.ok().build();
         }
@@ -86,6 +115,22 @@ public class CourseController {
         return ResponseEntity.badRequest().build();
     }
 
+    @DeleteMapping("/course/removewishlist")
+    public ResponseEntity<?> removeWishlist(@RequestBody AddWishlistForm form,Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+            courseService.removeWishlist(authentication.getPrincipal().toString(), form.wishlistId);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
     @GetMapping("/course/enrolled")
     public ResponseEntity<List<CourseResponseRest>> getEnrolledCourses(Authentication authentication){
         return ResponseEntity.ok().body(courseService.getEnrolledCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
@@ -96,9 +141,33 @@ public class CourseController {
         return ResponseEntity.ok().body(courseService.getWishlistCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
     }
 
+    @PostMapping("/course/submitexam")
+    public ResponseEntity<?> submitExam(@RequestBody ExamForm form,Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+            ExamResult result = courseService.submitExam(authentication.getPrincipal().toString(),form.examId, form.answers);
+            Map<String,Long> marks = new HashMap<>();
+            marks.put("marks",result.getMarks());
+            return ResponseEntity.ok().body(marks);
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+
 
 }
 
+@Data
+class ExamForm {
+    public String answers;
+    public Long examId;
+}
 
 @Data
 class EnrollCourseForm {
