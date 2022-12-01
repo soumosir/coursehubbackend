@@ -1,38 +1,25 @@
 package com.soumosir.coursehubbackend.api;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soumosir.coursehubbackend.cache.ForgotPasswordService;
 import com.soumosir.coursehubbackend.model.*;
 import com.soumosir.coursehubbackend.model.helper.AppUserRest;
-import com.soumosir.coursehubbackend.model.helper.ForgetPasswordAppUser;
+import com.soumosir.coursehubbackend.model.helper.CourseResponseRest;
 import com.soumosir.coursehubbackend.service.CourseService;
-import com.soumosir.coursehubbackend.service.EmailService;
-import com.soumosir.coursehubbackend.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-import static org.springframework.http.HttpStatus.FORBIDDEN;
 
 @RestController
 @RequestMapping("/api")
@@ -61,10 +48,65 @@ public class CourseController {
     }
 
     @GetMapping("/course")
-    public ResponseEntity<List<Course>> getCourses(){
-        return ResponseEntity.ok().body(courseService.getCourses());
+    public ResponseEntity<List<CourseResponseRest>> getCourses(){
+        return ResponseEntity.ok().body(courseService.getCourses().stream().map(CourseResponseRest::new).collect(Collectors.toList()));
     }
+
+
+    @PutMapping("/course/enrolluser")
+    public ResponseEntity<?> enrollCourse(@RequestBody EnrollCourseForm form, Authentication authentication, HttpServletResponse response) throws IOException {
+        try {
+            courseService.enrollCourse(authentication.getPrincipal().toString(), form.courseId);
+
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @PutMapping("/course/addwishlist")
+    public ResponseEntity<?> addWishlist(@RequestBody AddWishlistForm form,Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+            courseService.addWishlist(authentication.getPrincipal().toString(), form.wishlistId);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/course/enrolled")
+    public ResponseEntity<List<CourseResponseRest>> getEnrolledCourses(Authentication authentication){
+        return ResponseEntity.ok().body(courseService.getEnrolledCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/course/wishlist")
+    public ResponseEntity<List<CourseResponseRest>> getWishlistCourses(Authentication authentication){
+        return ResponseEntity.ok().body(courseService.getWishlistCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
+    }
+
 
 }
 
+
+@Data
+class EnrollCourseForm {
+    public Long courseId;
+}
+
+@Data
+class AddWishlistForm {
+    public Long wishlistId;
+}
 

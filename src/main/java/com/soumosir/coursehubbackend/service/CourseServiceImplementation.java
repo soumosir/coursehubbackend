@@ -1,9 +1,11 @@
 package com.soumosir.coursehubbackend.service;
 
 import com.soumosir.coursehubbackend.exceptions.ResourceNotFoundException;
+import com.soumosir.coursehubbackend.model.AppUser;
 import com.soumosir.coursehubbackend.model.Content;
 import com.soumosir.coursehubbackend.model.Course;
 import com.soumosir.coursehubbackend.model.Exam;
+import com.soumosir.coursehubbackend.repo.AppUserRepo;
 import com.soumosir.coursehubbackend.repo.ContentRepo;
 import com.soumosir.coursehubbackend.repo.CourseRepo;
 import com.soumosir.coursehubbackend.repo.ExamRepo;
@@ -25,6 +27,7 @@ public class CourseServiceImplementation implements CourseService{
     private final CourseRepo courseRepo;
     private final ExamRepo examRepo;
     private final ContentRepo contentRepo;
+    private final AppUserRepo appUserRepo;
 
 
     @Override
@@ -114,5 +117,42 @@ public class CourseServiceImplementation implements CourseService{
         Collection<Exam> exams = course.getExams();
         exams.add(exam);
         course.setExams(exams);
+    }
+
+
+    @Override
+    public void enrollCourse(String username, Long courseId) throws Exception {
+
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
+
+        if(course.getEnrolledUsers().size()<course.getTotalSeats()) {
+            log.info("Enrol to course to user  -> " + username + " -> " + courseId);
+            course.getEnrolledUsers().add(appUser);
+        }
+        else{
+            throw new Exception("User cannot enroll . No seats allocted ");
+        }
+    }
+
+    @Override
+    public void addWishlist(String username, Long courseId){
+
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
+        log.info("Add to wishlist course to user  -> " + username + " -> " + courseId);
+        course.getWishlistUsers().add(appUser);
+    }
+
+    @Override
+    public List<Course> getEnrolledCourses(String username) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        return courseRepo.findByEnrolledUsers(appUser);
+    }
+
+    @Override
+    public List<Course> getWishlistCourses(String username) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        return courseRepo.findByWishlistUsers(appUser);
     }
 }

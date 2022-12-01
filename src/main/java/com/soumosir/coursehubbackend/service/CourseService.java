@@ -21,5 +21,13 @@ public interface CourseService {
 
     void addContent(Long contentId,Long courseId);
     void addExam(Long examId,Long courseId);
+
+
+    void enrollCourse(String username, Long courseId) throws Exception;
+    void addWishlist(String username, Long courseId);
+
+    List<Course> getEnrolledCourses(String toString);
+
+    List<Course> getWishlistCourses(String toString);
 }
 

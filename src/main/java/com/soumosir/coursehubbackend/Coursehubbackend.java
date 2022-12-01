@@ -66,15 +66,14 @@ public class Coursehubbackend {
 					60L,
 					null,
 					null,
-					null));
+					null,null));
 
 			Course course2 = courseService.saveCourse(new Course(null,"Human computing","ENPM312","himans  123",appUser1,
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
 					null,
-					null,
-					null));
+					null,null,null));
 
 			courseService.addContent(content1.getId(),course1.getId());
 			courseService.addContent(content2.getId(),course1.getId());

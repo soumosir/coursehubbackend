@@ -1,5 +1,6 @@
-package com.soumosir.coursehubbackend.model;
+package com.soumosir.coursehubbackend.model.helper;
 
+import com.soumosir.coursehubbackend.model.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,22 +13,21 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.AUTO;
+
 
 @Slf4j
-@Entity @Data
-@NoArgsConstructor @AllArgsConstructor
-public class Course {
-    @Id
-    @GeneratedValue(strategy = AUTO)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class CourseResponseRest {
+
     private Long id;
     @NotEmpty
     @NotNull
     private String name;
-    @Column(unique=true)
     @NotEmpty
     @NotNull
     private String code;
@@ -36,8 +36,7 @@ public class Course {
     private String description;
     @NotEmpty
     @NotNull
-    @OneToOne(fetch = EAGER)
-    private AppUser instructor;
+    private String instructor;
 
     @NotEmpty
     @NotNull
@@ -49,18 +48,36 @@ public class Course {
     @NotNull
     private Long totalSeats;
 
-    @OneToMany(fetch = LAZY)
     private Collection<Content> contents;
-
-    @OneToMany(fetch = LAZY)
     private Collection<Exam> exams;
 
+    public CourseResponseRest(Course course){
+        this.id = course.getId();
+        this.name = course.getName();
+        this.code = course.getCode();
+        this.description = course.getDescription();
+        this.startTime = course.getStartTime();
+        this.endTime = course.getEndTime();
+        this.totalSeats = course.getTotalSeats();
+        this.instructor = course.getInstructor().getUsername();
 
-    @ManyToMany(fetch = LAZY)
-    private Collection<AppUser> wishlistUsers = new ArrayList<>();
+    }
 
-    @ManyToMany(fetch = LAZY)
-    private Collection<AppUser> enrolledUsers = new ArrayList<>();
+    public CourseResponseRest(Course course,Boolean detail){
+        this.id = course.getId();
+        this.name = course.getName();
+        this.code = course.getCode();
+        this.description = course.getDescription();
+        this.startTime = course.getStartTime();
+        this.endTime = course.getEndTime();
+        this.totalSeats = course.getTotalSeats();
+        this.instructor = course.getInstructor().getUsername();
+        this.contents = course.getContents();
+        this.exams = course.getExams();
+
+    }
+
+
 
     public void validate() throws ValidationException {
 
@@ -86,3 +103,4 @@ public class Course {
 
     }
 }
+
