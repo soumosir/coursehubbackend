@@ -7,6 +7,8 @@ import com.soumosir.coursehubbackend.model.helper.CourseResponseRest;
 import com.soumosir.coursehubbackend.service.CourseService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.util.MimeTypeUtils;
@@ -30,20 +32,38 @@ public class CourseController {
     private final CourseService courseService;
 
     @PostMapping("/exam")
-    public ResponseEntity<Exam> saveUser(@RequestBody Exam exam){
+    public ResponseEntity<Exam> saveExam(@RequestBody Exam exam,Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/exam").toUriString());
+        exam.setUser(authentication.getPrincipal().toString());
         return ResponseEntity.created(uri).body(courseService.saveExam(exam));
     }
 
+    @GetMapping("/exam")
+    public ResponseEntity<List<Exam>> getExams(Authentication authentication){
+        List<Exam> exams  = courseService.getExams(authentication.getPrincipal().toString());
+        return ResponseEntity.ok().body(exams);
+    }
+
+    @GetMapping("/exam/{id}")
+    public ResponseEntity<JSONObject> getExam(@PathVariable Long id){
+        Exam exam  = courseService.getExam(id);
+        HashMap<String,String> questions = new HashMap<>();
+        questions.put("questions",exam.getQuestions());
+        JSONObject jObject = new JSONObject(questions);
+        return ResponseEntity.ok().body(jObject);
+    }
+
     @PostMapping("/content")
-    public ResponseEntity<Content> saveUser(@RequestBody Content content){
+    public ResponseEntity<Content> postContent(@RequestBody Content content,Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/content").toUriString());
+        content.setUsername(authentication.getPrincipal().toString());
         return ResponseEntity.created(uri).body(courseService.saveContent(content));
     }
 
     @PostMapping("/course")
-    public ResponseEntity<Course> saveUser(@RequestBody Course course){
+    public ResponseEntity<Course> postCourse(@RequestBody Course course,Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
+        course.setInstructor(authentication.getPrincipal().toString());
         return ResponseEntity.created(uri).body(courseService.saveCourse(course));
     }
 

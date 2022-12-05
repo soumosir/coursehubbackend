@@ -39,12 +39,16 @@ public class Content {
     @NotNull
     private String url;
 
+    @NotNull
+    @NotEmpty
+    private String username;
+
 
     public void validate() throws ValidationException {
 
 
 
-        if(name==null || (name!=null && (name.length()<3|| name.length()>20))){
+        if(name==null || (name!=null && (name.length()<3|| name.length()>200))){
             log.error("name is less than 3 letters or more than 20 : "+ name );
             throw new ValidationException("name is less than 3 letters or more than 20 : "+ name );
         }
@@ -55,7 +59,7 @@ public class Content {
             throw new ValidationException("Username is should be alphanumeric A-Z , a-z or 0-9 : "+type);
         }
 
-        if(type==null ||(type!=null && (type.length()<3 || type.length()>30))){
+        if(type==null ||(type!=null && (type.length()<3 || type.length()>3000))){
             log.error("type is not valid should be more than 3 and les than 30 : "+ type );
             throw new ValidationException("type is not valid should be more than 3 and les than 30 : "+type);
         }

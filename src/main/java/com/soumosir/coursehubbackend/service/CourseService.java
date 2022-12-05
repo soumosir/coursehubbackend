@@ -39,5 +39,9 @@ public interface CourseService {
     void removeWishlist(String toString, Long wishlistId);
 
     Course getCourse(Long id);
+
+    Exam getExam(Long id);
+
+    List<Exam> getExams(String username);
 }
 

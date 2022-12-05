@@ -51,25 +51,7 @@ public class CourseServiceImplementation implements CourseService{
         courseRepo.deleteById(id);
     }
 
-    @Override
-    public Exam saveExam(Exam exam) {
-        exam.validate();
-        examRepo.save(exam);
-        return exam;
 
-    }
-
-    @Override
-    public Exam updateExam(Exam exam) {
-        exam.validate();
-//        examRepo.save(exam);
-        return exam;
-    }
-
-    @Override
-    public void deleteExam(Long id) {
-        examRepo.deleteById(id);
-    }
 
     @Override
     public Content saveContent(Content content) {
@@ -176,31 +158,7 @@ public class CourseServiceImplementation implements CourseService{
         return map;
     }
 
-    @Override
-    public ExamResult submitExam(String username,Long examId, String userAnswers) throws JSONException {
 
-        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
-        Exam exam  = examRepo.findById(examId).orElseThrow(() ->
-                new ResourceNotFoundException(String.format("exam id {} not present!",examId))
-        );
-
-        String correctAnswers = exam.getAnswers();
-
-        HashMap<String,String> userAnswersMap = jsonToMap(userAnswers);
-        HashMap<String,String> correctAnswersMap = jsonToMap(correctAnswers);
-        Long marks = 0L;
-        for (var entry : correctAnswersMap.entrySet()) {
-
-            if (userAnswersMap.containsKey(entry.getKey())){
-                var ans = userAnswersMap.get(entry.getKey());
-                if(ans.equals(entry.getValue())){
-                    marks+=1;
-                }
-            }
-        }
-        ExamResult examResult = new ExamResult(null,marks,appUser,exam);
-        return resultRepo.save(examResult);
-    }
 
     @Override
     public void unenrollCourse(String username, Long courseId) {
@@ -231,5 +189,65 @@ public class CourseServiceImplementation implements CourseService{
             throw new ResourceNotFoundException("course not found");
         });
         return course;
+    }
+
+    @Override
+    public Exam getExam(Long id) {
+        Exam exam  = examRepo.findById(id).orElseThrow(()->{
+            throw new ResourceNotFoundException("Exam not found");
+        });
+        return exam;
+    }
+
+    @Override
+    public List<Exam> getExams(String username){
+        List<Exam> exams = examRepo.findByUser(username);
+        return exams;
+    }
+
+    @Override
+    public ExamResult submitExam(String username,Long examId, String userAnswers) throws JSONException {
+
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+        Exam exam  = examRepo.findById(examId).orElseThrow(() ->
+                new ResourceNotFoundException(String.format("exam id {} not present!",examId))
+        );
+
+        String correctAnswers = exam.getAnswers();
+
+        HashMap<String,String> userAnswersMap = jsonToMap(userAnswers);
+        HashMap<String,String> correctAnswersMap = jsonToMap(correctAnswers);
+        Long marks = 0L;
+        for (var entry : correctAnswersMap.entrySet()) {
+
+            if (userAnswersMap.containsKey(entry.getKey())){
+                var ans = userAnswersMap.get(entry.getKey());
+                if(ans.equals(entry.getValue())){
+                    marks+=1;
+                }
+            }
+        }
+        ExamResult examResult = new ExamResult(null,marks,appUser,exam);
+        return resultRepo.save(examResult);
+    }
+
+    @Override
+    public Exam saveExam(Exam exam) {
+        exam.validate();
+        examRepo.save(exam);
+        return exam;
+
+    }
+
+    @Override
+    public Exam updateExam(Exam exam) {
+        exam.validate();
+//        examRepo.save(exam);
+        return exam;
+    }
+
+    @Override
+    public void deleteExam(Long id) {
+        examRepo.deleteById(id);
     }
 }

@@ -1,5 +1,7 @@
 package com.soumosir.coursehubbackend;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soumosir.coursehubbackend.model.*;
 import com.soumosir.coursehubbackend.service.CourseService;
 import com.soumosir.coursehubbackend.service.EmailService;
@@ -46,6 +48,7 @@ public class Coursehubbackend {
             AppUser appUser4 = userService.saveUser(new AppUser(null, "Vincent Yu", "vin", "soumosirdutta@gmail.com", "Maryland@1234", new ArrayList<>()));
 
             userService.addRoleToUser("sdutta", "ROLE_ADMIN");
+			userService.addRoleToUser("jdoe", "ROLE_INSTRUCTOR");
 
 			Map<String,List<String>> questions = new HashMap<>();
 			questions.put("what is 1+1?",List.of("3","2","1","0"));
@@ -59,17 +62,33 @@ public class Coursehubbackend {
 			answers.put("how many bytes is  char?","1");
 			answers.put("what is 1+9?","10");
 
-			Exam exam1 = courseService.saveExam(new Exam(null,"Quiz name 1","QUIZ",120L,questions.toString(),answers.toString()));
-			Exam exam2 = courseService.saveExam(new Exam(null,"Final exam name 1","EXAM",120L,questions.toString(),answers.toString()));
+			String answersS="{}";
+			String questionsS="{}";
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			try {
+				answersS = objectMapper.writeValueAsString(answers);
+				questionsS = objectMapper.writeValueAsString(questions);
+				System.out.println(answersS);
+				System.out.println(questionsS);
+
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+
+			Exam exam1 = courseService.saveExam(new Exam(null,"Hash map implementation","QUIZ",120L,questionsS,answersS,appUser2.getUsername()));
+			Exam exam2 = courseService.saveExam(new Exam(null,"B Trees implementation Test","EXAM",120L,questionsS,answersS,appUser2.getUsername()));
+//			Exam exam3 = courseService.saveExam(new Exam(null,"Final Assessment","EXAM",120L,questionsS,answersS));
 
 			Content content1 = courseService.saveContent(new Content(
-					null, "lecture 1","video","google.com"
+					null, "Sorting Algorithms Review","video","google.com",appUser2.getUsername()
 			));
 			Content content2 = courseService.saveContent(new Content(
-					null, "lecture pdf","image","google.com"
+					null, "Sorting Algorithms Deep Dive","image","google.com",appUser2.getUsername()
 			));
 
-			Course course1 = courseService.saveCourse(new Course(null,"Data and Algo","ENPM809W","description 123",appUser1,
+
+			Course course1 = courseService.saveCourse(new Course(null,"Data Structures and Algorithm","ENPM809W","A data structure is a named location that can be used to store and organize data. ",appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
@@ -77,14 +96,21 @@ public class Coursehubbackend {
 					null,
 					null,List.of(appUser2)));
 
-			Course course2 = courseService.saveCourse(new Course(null,"Human computing","ENPM312","himans  123",appUser1,
+			Course course2 = courseService.saveCourse(new Course(null,"Human Computer Interaction","ENPM312","Human-computer interaction (HCI) is a multidisciplinary field of study focusing on the design of computer technology.",appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
 					null,
 					null,List.of(appUser2),List.of(appUser3)));
 
-			Course course3 = courseService.saveCourse(new Course(null,"Software design","ENPM613","himans  123",appUser1,
+			Course course3 = courseService.saveCourse(new Course(null,"Software Design and Implementation","ENPM613","The implementation stage of software development is the process of developing an executable system for delivery to the customer. Sometimes this involves separate activities of software design and programming. ." ,appUser2.getUsername(),
+					Timestamp.valueOf(LocalDateTime.now()),
+					Timestamp.valueOf(LocalDateTime.now()),
+					60L,
+					null,
+					null,List.of(appUser4),List.of(appUser3)));
+
+			Course course4 = courseService.saveCourse(new Course(null,"Object Oriented Programming","ENPM083","The object oriented stage of software development is the process of developing an executable system for delivery to the customer. s." ,appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
@@ -93,10 +119,20 @@ public class Coursehubbackend {
 
 			courseService.addContent(content1.getId(),course1.getId());
 			courseService.addContent(content2.getId(),course1.getId());
+//			courseService.addContent(content3.getId(),course1.getId());
+//			courseService.addContent(content4.getId(),course1.getId());
+//			courseService.addContent(content5.getId(),course1.getId());
+//			courseService.addContent(content6.getId(),course1.getId());
+//			courseService.addContent(content7.getId(),course1.getId());
+//			courseService.addContent(content8.getId(),course1.getId());
+//			courseService.addContent(content9.getId(),course1.getId());
+
+
 
 
 			courseService.addExam(exam1.getId(),course1.getId());
 			courseService.addExam(exam2.getId(),course2.getId());
+//			courseService.addExam(exam3.getId(),course2.getId());
 
 
 

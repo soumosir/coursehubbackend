@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static javax.persistence.FetchType.EAGER;
@@ -59,7 +60,7 @@ public class CourseResponseRest {
         this.startTime = course.getStartTime();
         this.endTime = course.getEndTime();
         this.totalSeats = course.getTotalSeats();
-        this.instructor = course.getInstructor().getUsername();
+        this.instructor = course.getInstructor();
 
     }
 
@@ -71,9 +72,13 @@ public class CourseResponseRest {
         this.startTime = course.getStartTime();
         this.endTime = course.getEndTime();
         this.totalSeats = course.getTotalSeats();
-        this.instructor = course.getInstructor().getUsername();
+        this.instructor = course.getInstructor();
         this.contents = course.getContents();
-        this.exams = course.getExams();
+        Collection<Exam> exams = course.getExams();
+        exams.forEach(exam -> {
+            exam.setAnswers(null);
+        });
+        this.exams = exams;
 
     }
 

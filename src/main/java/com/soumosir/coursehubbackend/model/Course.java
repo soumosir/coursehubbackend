@@ -34,10 +34,8 @@ public class Course {
     @NotEmpty
     @NotNull
     private String description;
-    @NotEmpty
-    @NotNull
-    @OneToOne(fetch = EAGER)
-    private AppUser instructor;
+
+    private String instructor;
 
     @NotEmpty
     @NotNull
@@ -66,7 +64,7 @@ public class Course {
 
 
 
-        if(name==null || (name!=null && (name.length()<3|| name.length()>20))){
+        if(name==null || (name!=null && (name.length()<3|| name.length()>2000))){
             log.error("name is less than 3 letters or more than 20 : "+ name );
             throw new ValidationException("name is less than 3 letters or more than 20 : "+ name );
         }
@@ -77,7 +75,7 @@ public class Course {
             throw new ValidationException("Username is should be alphanumeric A-Z , a-z or 0-9 : "+code);
         }
 
-        if(code==null ||(code!=null && (code.length()<3 || code.length()>30))){
+        if(code==null ||(code!=null && (code.length()<3 || code.length()>3000))){
             log.error("code is not valid should be more than 3 and les than 30 : "+ code );
             throw new ValidationException("code is not valid should be more than 3 and les than 30 : "+code);
         }
