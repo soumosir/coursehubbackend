@@ -29,7 +29,6 @@ public class Exam {
     @NotEmpty
     @NotNull
     private String name;
-    @Column(unique=true)
     @NotEmpty
     @NotNull
     private String type;

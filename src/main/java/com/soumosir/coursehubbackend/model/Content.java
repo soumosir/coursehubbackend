@@ -29,7 +29,7 @@ public class Content {
     @NotEmpty
     @NotNull
     private String name;
-    @Column(unique=true)
+//    @Column(unique=true)
     @NotEmpty
     @NotNull
     private String type;

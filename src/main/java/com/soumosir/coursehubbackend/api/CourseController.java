@@ -3,10 +3,12 @@ package com.soumosir.coursehubbackend.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soumosir.coursehubbackend.model.*;
 import com.soumosir.coursehubbackend.model.helper.AppUserRest;
+import com.soumosir.coursehubbackend.model.helper.CourseRequestRest;
 import com.soumosir.coursehubbackend.model.helper.CourseResponseRest;
 import com.soumosir.coursehubbackend.service.CourseService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.checkerframework.checker.units.qual.C;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -66,10 +65,23 @@ public class CourseController {
     }
 
     @PostMapping("/course")
-    public ResponseEntity<Course> postCourse(@RequestBody Course course,Authentication authentication){
+    public ResponseEntity<Course> postCourse(@RequestBody Course course, Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
+        Collection<Content> savedContent = new ArrayList<>();
+        course.getContents().forEach(content -> {
+            content.setUsername(authentication.getPrincipal().toString());
+            savedContent.add(courseService.saveContent(content));
+        });
+        course.setContents(savedContent);
+        Collection<Exam> savedExam = new ArrayList<>();
+        course.getExams().forEach(exam -> {
+            exam.setUser(authentication.getPrincipal().toString());
+            savedExam.add(courseService.saveExam(exam));
+        });
+        course.setExams(savedExam);
         course.setInstructor(authentication.getPrincipal().toString());
         return ResponseEntity.created(uri).body(courseService.saveCourse(course));
+
     }
 
     @GetMapping("/course")
