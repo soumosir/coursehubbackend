@@ -72,10 +72,16 @@ public class CourseResponseRest {
         this.totalSeats = course.getTotalSeats();
         this.remainingSeats = course.getRemainingSeats();
         this.instructor = course.getInstructor();
-        this.contents = course.getContents();
+        Collection<Content> contents = course.getContents();
+        contents.forEach(content -> {
+            content.setDescription(null);
+            content.setUrl(null);
+        });
+        this.contents = contents;
         Collection<Exam> exams = course.getExams();
         exams.forEach(exam -> {
             exam.setAnswers(null);
+            exam.setQuestions(null);
         });
         this.exams = exams;
 

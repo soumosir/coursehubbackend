@@ -40,12 +40,12 @@ public interface CourseService {
 
     Course getCourse(Long id);
 
-    Exam getExam(Long id);
+    Exam getExam(Long id,String username);
 
     List<Exam> getExams(String username);
 
     List<ExamResult> getResultByCourseId(Long courseId, String username);
 
-    Content getContent(Long id);
+    Content getContent(Long id,String username);
 }
 

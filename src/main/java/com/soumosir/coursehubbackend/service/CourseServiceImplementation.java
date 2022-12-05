@@ -88,10 +88,10 @@ public class CourseServiceImplementation implements CourseService{
     @Override
     public void addExam(Long examId, Long courseId) {
         Course course = courseRepo.findById(courseId).orElseThrow(() ->
-                new ResourceNotFoundException(String.format("Course id {} not present!",courseId))
+                new ResourceNotFoundException(String.format("Course id %s not present!",courseId))
         );
         Exam exam  = examRepo.findById(examId).orElseThrow(() ->
-                new ResourceNotFoundException(String.format("exam id {} not present!",examId))
+                new ResourceNotFoundException(String.format("exam id %s not present!",examId))
         );
         Collection<Exam> exams = course.getExams();
         exams.add(exam);
@@ -215,18 +215,34 @@ public class CourseServiceImplementation implements CourseService{
     }
 
     @Override
-    public Content getContent(Long id) {
+    public Content getContent(Long id,String username) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Content content  = contentRepo.findById(id).orElseThrow(()->{
             throw new ResourceNotFoundException("Content not found");
         });
+        List<Course> courses = courseRepo.findByContents(content);
+        if(courses.size()==0){
+            throw new ResourceNotFoundException(String.format("Content id %s not present in any course!",id));
+        }
+        if(!courses.get(0).getEnrolledUsers().contains(appUser)){
+            throw new ResourceNotFoundException(String.format("User %s is not enrolled in the course %s hence cannot view the content!",appUser.getUsername(),courses.get(0).getName()));
+        }
         return content;
     }
 
     @Override
-    public Exam getExam(Long id) {
+    public Exam getExam(Long id,String username) {
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Exam exam  = examRepo.findById(id).orElseThrow(()->{
             throw new ResourceNotFoundException("Exam not found");
         });
+        List<Course> courses = courseRepo.findByExams(exam);
+        if(courses.size()==0){
+            throw new ResourceNotFoundException(String.format("Exam id %s not present in any course!",id));
+        }
+        if(!courses.get(0).getEnrolledUsers().contains(appUser)){
+            throw new ResourceNotFoundException(String.format("User %s is not enrolled in the course %s hence cannot view the exam!",appUser.getUsername(),courses.get(0).getName()));
+        }
         return exam;
     }
 
@@ -244,6 +260,13 @@ public class CourseServiceImplementation implements CourseService{
         Exam exam  = examRepo.findById(examId).orElseThrow(() ->
                 new ResourceNotFoundException(String.format("exam id {} not present!",examId))
         );
+        List<Course> courses = courseRepo.findByExams(exam);
+        if(courses.size()==0){
+            throw new ResourceNotFoundException(String.format("Exam id {} not present in any course!",examId));
+        }
+        if(!courses.get(0).getEnrolledUsers().contains(appUser)){
+            throw new ResourceNotFoundException(String.format("User {} is not enrolled in the course {} hence cannot take the exam!",appUser.getUsername(),courses.get(0).getName()));
+        }
 
         ExamResult examResult1 = resultRepo.findByExamAndUser(exam,appUser);
         if(examResult1!=null && examResult1.getMarks()!=-1){

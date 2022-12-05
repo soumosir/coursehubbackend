@@ -45,16 +45,37 @@ public class CourseController {
     }
 
     @GetMapping("/exam/{id}")
-    public ResponseEntity<Exam> getExam(@PathVariable Long id){
-        Exam exam  = courseService.getExam(id);
-        exam.setAnswers(null);
-        return ResponseEntity.ok().body(exam);
+    public ResponseEntity<Exam> getExam(@PathVariable Long id,Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+            Exam exam = courseService.getExam(id, authentication.getPrincipal().toString());
+
+            exam.setAnswers(null);
+            return ResponseEntity.ok().body(exam);
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/content/{id}")
-    public ResponseEntity<Content> getContent(@PathVariable Long id){
-        Content content  = courseService.getContent(id);
-        return ResponseEntity.ok().body(content);
+    public ResponseEntity<Content> getContent(@PathVariable Long id,Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+            Content content = courseService.getContent(id, authentication.getPrincipal().toString());
+            return ResponseEntity.ok().body(content);
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @PostMapping("/content")
