@@ -1056,3 +1056,70 @@
 2022-12-05 16:26:20.317  INFO 23116 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-12-05 16:26:20.332  INFO 23116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-12-05 16:26:20.359  INFO 23116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-05 18:02:27.926  INFO 89430 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 89430 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-05 18:02:27.930  INFO 89430 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 18:02:28.658  INFO 89430 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 18:02:28.716  INFO 89430 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 6 JPA repository interfaces.
+2022-12-05 18:02:29.252  INFO 89430 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-05 18:02:29.259  INFO 89430 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 18:02:29.260  INFO 89430 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-05 18:02:29.308  INFO 89430 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 18:02:29.308  INFO 89430 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1350 ms
+2022-12-05 18:02:29.473  INFO 89430 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 18:02:29.502  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-12-05 18:02:29.686  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-12-05 18:02:29.688  INFO 89430 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-05 18:02:31.307  INFO 89430 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 18:02:31.308  INFO 89430 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 18:02:31.340  WARN 89430 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'courseController' defined in file [/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes/com/soumosir/coursehubbackend/api/CourseController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.soumosir.coursehubbackend.service.CourseService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2022-12-05 18:02:31.341  INFO 89430 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 18:02:31.342  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-12-05 18:02:31.362  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-12-05 18:02:31.367  INFO 89430 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 18:02:31.423  INFO 89430 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-05 18:02:31.517 ERROR 89430 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.soumosir.coursehubbackend.api.CourseController required a bean of type 'com.soumosir.coursehubbackend.service.CourseService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.soumosir.coursehubbackend.service.CourseService' in your configuration.
+
+2022-12-05 18:02:35.026  INFO 89430 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 89430 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-05 18:02:35.039  INFO 89430 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 18:02:35.979  INFO 89430 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 18:02:36.089  INFO 89430 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 6 JPA repository interfaces.
+2022-12-05 18:02:36.673  INFO 89430 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-05 18:02:36.682  INFO 89430 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 18:02:36.683  INFO 89430 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-05 18:02:36.734  INFO 89430 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 18:02:36.734  INFO 89430 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1609 ms
+2022-12-05 18:02:36.919  INFO 89430 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 18:02:36.932  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-12-05 18:02:37.181  INFO 89430 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-12-05 18:02:37.184  INFO 89430 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-05 18:02:38.094  INFO 89430 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 18:02:38.095  INFO 89430 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 18:02:38.729  WARN 89430 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 18:02:38.779  INFO 89430 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58a76075, com.soumosir.coursehubbackend.security.CorsFilter@c064df0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@295ff1fd, org.springframework.security.web.context.SecurityContextPersistenceFilter@159ebef4, org.springframework.security.web.header.HeaderWriterFilter@219e094a, org.springframework.security.web.authentication.logout.LogoutFilter@18195616, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@3f7e9dbf, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@5cb9f6ed, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@626e5947, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1760a988, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46652677, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34688cee, org.springframework.security.web.session.SessionManagementFilter@7173b9e, org.springframework.security.web.access.ExceptionTranslationFilter@2c35d926, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2106e637]
+2022-12-05 18:02:39.068  INFO 89430 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-05 18:02:39.339  INFO 89430 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-05 18:02:39.348  INFO 89430 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 5.506 seconds (JVM running for 5492.381)
+2022-12-05 18:02:39.411  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-05 18:02:39.601  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-05 18:02:39.783  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-05 18:02:39.898  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-05 18:02:40.008  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-05 18:02:40.133  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-05 18:02:40.143  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-05 18:02:40.174  INFO 89430 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-05 18:02:40.388  INFO 89430 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
