@@ -215,6 +215,14 @@ public class CourseServiceImplementation implements CourseService{
     }
 
     @Override
+    public Content getContent(Long id) {
+        Content content  = contentRepo.findById(id).orElseThrow(()->{
+            throw new ResourceNotFoundException("Content not found");
+        });
+        return content;
+    }
+
+    @Override
     public Exam getExam(Long id) {
         Exam exam  = examRepo.findById(id).orElseThrow(()->{
             throw new ResourceNotFoundException("Exam not found");

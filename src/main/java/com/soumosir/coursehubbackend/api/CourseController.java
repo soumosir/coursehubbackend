@@ -52,6 +52,12 @@ public class CourseController {
         return ResponseEntity.ok().body(exam);
     }
 
+    @GetMapping("/content/{id}")
+    public ResponseEntity<Content> getContent(@PathVariable Long id){
+        Content content  = courseService.getContent(id);
+        return ResponseEntity.ok().body(content);
+    }
+
     @PostMapping("/content")
     public ResponseEntity<Content> postContent(@RequestBody Content content,Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/content").toUriString());
