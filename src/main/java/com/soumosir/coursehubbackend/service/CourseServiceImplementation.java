@@ -201,10 +201,6 @@ public class CourseServiceImplementation implements CourseService{
 
         Collection<Exam> exams  = course.getExams();
         Collection<ExamResult> examResults =  resultRepo.findByUserAndExamIsIn(appUser,exams);
-        examResults.forEach(examResult -> {
-            examResult.setUser(null);
-        });
-
         return (List<ExamResult>)examResults;
 
     }
