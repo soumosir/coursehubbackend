@@ -107,3 +107,532 @@
 2022-12-04 19:07:29.173  INFO 30904 --- [https-jsse-nio-8443-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-12-04 19:07:29.178  INFO 30904 --- [https-jsse-nio-8443-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-12-04 19:07:29.186  INFO 30904 --- [https-jsse-nio-8443-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-12-04 19:17:04.366  INFO 30904 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 19:17:04.405  INFO 30904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 19:17:04.441  INFO 30904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 19:17:09.982  INFO 31905 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 31905 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 19:17:09.985  INFO 31905 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 19:17:10.809  INFO 31905 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 19:17:10.810  INFO 31905 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 19:17:12.610  INFO 31905 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 19:17:12.739  INFO 31905 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 6 JPA repository interfaces.
+2022-12-04 19:17:14.040  INFO 31905 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 19:17:14.055  INFO 31905 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 19:17:14.056  INFO 31905 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 19:17:14.176  INFO 31905 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 19:17:14.176  INFO 31905 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3343 ms
+2022-12-04 19:17:14.646  INFO 31905 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 19:17:14.771  INFO 31905 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 19:17:14.964  INFO 31905 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 19:17:15.071  INFO 31905 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 19:17:15.505  INFO 31905 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 19:17:15.522  INFO 31905 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 19:17:16.850  INFO 31905 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 19:17:16.860  INFO 31905 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 19:17:18.012  WARN 31905 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 19:17:18.197  INFO 31905 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6c96f1b9, com.soumosir.coursehubbackend.security.CorsFilter@677f4f3e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c3e115a, org.springframework.security.web.context.SecurityContextPersistenceFilter@d3dce29, org.springframework.security.web.header.HeaderWriterFilter@6cbc30c3, org.springframework.security.web.authentication.logout.LogoutFilter@38d8afcd, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@5dc23b95, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@60212ad, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@1b19bbec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4eeb531d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64675dc5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4771dd14, org.springframework.security.web.session.SessionManagementFilter@435a2637, org.springframework.security.web.access.ExceptionTranslationFilter@436ddc25, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19abd1a9]
+2022-12-04 19:17:18.863  INFO 31905 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 19:17:19.323  INFO 31905 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 19:17:19.351  INFO 31905 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 11.444 seconds (JVM running for 12.593)
+2022-12-04 19:17:19.399  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 19:17:19.477  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 19:17:19.744  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 19:17:19.873  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 19:17:19.972  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 19:17:20.066  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 19:17:20.083  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 19:17:20.113  INFO 31905 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 19:18:36.773  INFO 31905 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 19:18:36.782  INFO 31905 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 19:18:36.796  INFO 31905 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2022-12-04 19:18:41.807  INFO 31905 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : jdoe ,
+2022-12-04 19:18:42.057  INFO 31905 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
+2022-12-04 19:22:22.130  WARN 31905 --- [https-jsse-nio-8443-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2022-12-04 19:25:46.611  INFO 31905 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 19:25:46.643  INFO 31905 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 19:25:46.696  INFO 31905 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 19:25:55.177  INFO 32581 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 32581 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 19:25:55.181  INFO 32581 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 19:25:55.389  INFO 32581 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 19:25:55.391  INFO 32581 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 19:25:56.860  INFO 32581 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 19:25:56.996  INFO 32581 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 6 JPA repository interfaces.
+2022-12-04 19:25:58.389  INFO 32581 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 19:25:58.405  INFO 32581 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 19:25:58.405  INFO 32581 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 19:25:58.529  INFO 32581 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 19:25:58.530  INFO 32581 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3137 ms
+2022-12-04 19:25:58.977  INFO 32581 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 19:25:59.013  INFO 32581 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 19:25:59.187  INFO 32581 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 19:25:59.376  INFO 32581 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 19:25:59.893  INFO 32581 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 19:25:59.913  INFO 32581 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 19:26:01.240  INFO 32581 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 19:26:01.250  INFO 32581 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 19:26:02.424  WARN 32581 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 19:26:02.628  INFO 32581 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b8716b2, com.soumosir.coursehubbackend.security.CorsFilter@4016c322, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f3199cf, org.springframework.security.web.context.SecurityContextPersistenceFilter@2da1eb09, org.springframework.security.web.header.HeaderWriterFilter@655b0cfd, org.springframework.security.web.authentication.logout.LogoutFilter@6472a2a4, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@57adf85f, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@14dc469e, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@62a598f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42e929f8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60e45632, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11298a8e, org.springframework.security.web.session.SessionManagementFilter@5ac5f646, org.springframework.security.web.access.ExceptionTranslationFilter@2e9c704, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e9e2539]
+2022-12-04 19:26:03.306  INFO 32581 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 19:26:03.818  INFO 32581 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 19:26:03.848  INFO 32581 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.92 seconds (JVM running for 11.842)
+2022-12-04 19:26:03.908  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 19:26:03.990  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 19:26:04.227  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 19:26:04.344  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 19:26:04.445  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 19:26:04.544  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 19:26:04.564  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 19:26:04.605  INFO 32581 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 19:28:09.848  INFO 32581 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 19:28:09.853  INFO 32581 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 19:28:09.867  INFO 32581 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2022-12-04 20:23:47.559 ERROR 32581 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:23:50.540 ERROR 32581 --- [https-jsse-nio-8443-exec-9] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:23:50.579 ERROR 32581 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:23:50.705 ERROR 32581 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:23:50.754 ERROR 32581 --- [https-jsse-nio-8443-exec-1] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:24:01.553  INFO 32581 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:24:01.588  INFO 32581 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 20:24:01.625  INFO 32581 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 20:24:10.294  INFO 36691 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 36691 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 20:24:10.299  INFO 36691 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 20:24:10.467  INFO 36691 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 20:24:10.469  INFO 36691 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 20:24:11.957  INFO 36691 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 20:24:12.101  INFO 36691 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 6 JPA repository interfaces.
+2022-12-04 20:24:13.353  INFO 36691 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 20:24:13.369  INFO 36691 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 20:24:13.369  INFO 36691 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 20:24:13.479  INFO 36691 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 20:24:13.479  INFO 36691 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3009 ms
+2022-12-04 20:24:13.966  INFO 36691 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 20:24:14.029  INFO 36691 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 20:24:14.262  INFO 36691 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 20:24:14.368  INFO 36691 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 20:24:14.840  INFO 36691 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 20:24:14.856  INFO 36691 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 20:24:16.332  INFO 36691 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 20:24:16.340  INFO 36691 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:24:17.492  WARN 36691 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 20:24:17.687  INFO 36691 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3bc81ce, com.soumosir.coursehubbackend.security.CorsFilter@349a9122, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56ff3195, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b7895c, org.springframework.security.web.header.HeaderWriterFilter@637dfcab, org.springframework.security.web.authentication.logout.LogoutFilter@3f3fc779, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@3ee4f3d9, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@59b1a73a, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@39c23eaf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@480dc8cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e342512, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@169ed39b, org.springframework.security.web.session.SessionManagementFilter@1b911ecd, org.springframework.security.web.access.ExceptionTranslationFilter@581a960f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4439f778]
+2022-12-04 20:24:18.321  INFO 36691 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 20:24:18.782  INFO 36691 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 20:24:18.819  INFO 36691 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.768 seconds (JVM running for 11.691)
+2022-12-04 20:24:18.861  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 20:24:18.957  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 20:24:19.226  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 20:24:19.356  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 20:24:19.456  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 20:24:19.552  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 20:24:19.568  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 20:24:19.603  INFO 36691 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 20:24:24.285  INFO 36691 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 20:24:24.287  INFO 36691 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 20:24:24.297  INFO 36691 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-12-04 20:24:24.375 ERROR 36691 --- [https-jsse-nio-8443-exec-1] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:24:24.406 ERROR 36691 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:01.286 ERROR 36691 --- [https-jsse-nio-8443-exec-6] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:01.321 ERROR 36691 --- [https-jsse-nio-8443-exec-4] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:12.904 ERROR 36691 --- [https-jsse-nio-8443-exec-5] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:12.923 ERROR 36691 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:12.963 ERROR 36691 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:12.972 ERROR 36691 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T00:58:42Z.
+2022-12-04 20:25:24.294  INFO 36691 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : jdoe ,
+2022-12-04 20:25:24.560  INFO 36691 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
+2022-12-04 20:45:19.929 ERROR 36691 --- [https-jsse-nio-8443-exec-5] c.s.c.s.CustomAuthorizationFilter        : Error logging in: Request processing failed; nested exception is com.soumosir.coursehubbackend.exceptions.ResourceNotFoundException: Exam not found
+2022-12-04 20:45:19.984 ERROR 36691 --- [https-jsse-nio-8443-exec-9] c.s.c.s.CustomAuthorizationFilter        : Error logging in: Request processing failed; nested exception is com.soumosir.coursehubbackend.exceptions.ResourceNotFoundException: Exam not found
+2022-12-04 20:53:52.274  INFO 36691 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:53:52.294  INFO 36691 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 20:53:52.348  INFO 36691 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 20:54:01.219  INFO 38631 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 38631 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 20:54:01.226  INFO 38631 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 20:54:01.831  INFO 38631 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 20:54:01.832  INFO 38631 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 20:54:03.755  INFO 38631 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 20:54:03.894  INFO 38631 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 6 JPA repository interfaces.
+2022-12-04 20:54:05.375  INFO 38631 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 20:54:05.389  INFO 38631 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 20:54:05.390  INFO 38631 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 20:54:05.500  INFO 38631 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 20:54:05.501  INFO 38631 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3667 ms
+2022-12-04 20:54:06.103  INFO 38631 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 20:54:06.141  INFO 38631 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 20:54:06.315  INFO 38631 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 20:54:06.447  INFO 38631 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 20:54:06.914  INFO 38631 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 20:54:06.932  INFO 38631 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 20:54:08.461  INFO 38631 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 20:54:08.474  INFO 38631 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:54:09.643  WARN 38631 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 20:54:09.874  INFO 38631 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4016c322, com.soumosir.coursehubbackend.security.CorsFilter@7f3199cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57adf85f, org.springframework.security.web.context.SecurityContextPersistenceFilter@58234f3d, org.springframework.security.web.header.HeaderWriterFilter@1658d26e, org.springframework.security.web.authentication.logout.LogoutFilter@729d070c, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@14dc469e, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@62a598f4, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@11298a8e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b117d4a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78627e96, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@297ee7f4, org.springframework.security.web.session.SessionManagementFilter@403b5d7c, org.springframework.security.web.access.ExceptionTranslationFilter@35c5e436, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f2a699c]
+2022-12-04 20:54:10.909  INFO 38631 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 20:54:11.820  INFO 38631 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 20:54:11.853  INFO 38631 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 13.217 seconds (JVM running for 14.344)
+2022-12-04 20:54:11.925  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 20:54:12.039  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 20:54:12.318  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 20:54:12.438  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 20:54:12.587  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 20:54:12.742  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 20:54:12.764  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 20:54:12.841  INFO 38631 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 20:54:53.357  INFO 38631 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:54:53.404  INFO 38631 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 20:54:53.444  INFO 38631 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 20:55:01.264  INFO 38922 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 38922 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 20:55:01.266  INFO 38922 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 20:55:01.465  INFO 38922 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 20:55:01.466  INFO 38922 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 20:55:02.921  INFO 38922 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 20:55:03.052  INFO 38922 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 6 JPA repository interfaces.
+2022-12-04 20:55:04.374  INFO 38922 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 20:55:04.386  INFO 38922 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 20:55:04.386  INFO 38922 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 20:55:04.503  INFO 38922 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 20:55:04.503  INFO 38922 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3036 ms
+2022-12-04 20:55:05.046  INFO 38922 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 20:55:05.086  INFO 38922 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 20:55:05.253  INFO 38922 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 20:55:05.359  INFO 38922 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 20:55:05.822  INFO 38922 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 20:55:05.842  INFO 38922 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 20:55:07.290  INFO 38922 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 20:55:07.300  INFO 38922 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:55:08.474  WARN 38922 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 20:55:08.708  INFO 38922 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70472963, com.soumosir.coursehubbackend.security.CorsFilter@20c6d85d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@235ffaec, org.springframework.security.web.context.SecurityContextPersistenceFilter@fd9e5b0, org.springframework.security.web.header.HeaderWriterFilter@27aff62, org.springframework.security.web.authentication.logout.LogoutFilter@34c757ce, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@50ebaa66, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@192e9d29, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@fbcba61, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3df3aad8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64f5e5c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53e8a9e0, org.springframework.security.web.session.SessionManagementFilter@299c831d, org.springframework.security.web.access.ExceptionTranslationFilter@480dc8cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56ff3195]
+2022-12-04 20:55:09.419  INFO 38922 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 20:55:09.954  INFO 38922 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 20:55:09.993  INFO 38922 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.825 seconds (JVM running for 11.749)
+2022-12-04 20:55:10.035  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 20:55:10.119  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 20:55:10.340  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 20:55:10.476  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 20:55:10.577  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 20:55:10.674  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 20:55:10.706  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 20:55:10.747  INFO 38922 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 20:55:14.331  INFO 38922 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 20:55:14.334  INFO 38922 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 20:55:14.353  INFO 38922 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2022-12-04 20:58:47.253  INFO 38922 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:58:47.263  INFO 38922 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 20:58:47.291  INFO 38922 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 20:58:51.682  INFO 39112 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 39112 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 20:58:51.688  INFO 39112 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 20:58:51.804  INFO 39112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 20:58:51.804  INFO 39112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 20:58:53.185  INFO 39112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 20:58:53.316  INFO 39112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 6 JPA repository interfaces.
+2022-12-04 20:58:54.600  INFO 39112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 20:58:54.621  INFO 39112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 20:58:54.623  INFO 39112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 20:58:54.748  INFO 39112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 20:58:54.748  INFO 39112 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2942 ms
+2022-12-04 20:58:55.220  INFO 39112 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 20:58:55.258  INFO 39112 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 20:58:55.454  INFO 39112 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 20:58:55.633  INFO 39112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 20:58:56.108  INFO 39112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 20:58:56.127  INFO 39112 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 20:58:57.480  INFO 39112 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 20:58:57.489  INFO 39112 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 20:58:58.664  WARN 39112 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 20:58:58.881  INFO 39112 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4b48a9ce, com.soumosir.coursehubbackend.security.CorsFilter@7ee9cd91, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ac3aef1, org.springframework.security.web.context.SecurityContextPersistenceFilter@8c237c, org.springframework.security.web.header.HeaderWriterFilter@4d65bf03, org.springframework.security.web.authentication.logout.LogoutFilter@3fd013fb, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@6c52389b, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@625aea06, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@526f2699, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c4d155e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cc7ea2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65ecae03, org.springframework.security.web.session.SessionManagementFilter@2b35b21e, org.springframework.security.web.access.ExceptionTranslationFilter@4ed33a5a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22dc2466]
+2022-12-04 20:58:59.476  INFO 39112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 20:58:59.976  INFO 39112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 20:59:00.001  INFO 39112 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.423 seconds (JVM running for 11.763)
+2022-12-04 20:59:00.056  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 20:59:00.190  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 20:59:00.428  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 20:59:00.551  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 20:59:00.667  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 20:59:00.766  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 20:59:00.784  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 20:59:00.823  INFO 39112 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 20:59:07.251  INFO 39112 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 20:59:07.253  INFO 39112 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 20:59:07.264  INFO 39112 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2022-12-04 21:00:39.342  INFO 39112 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:00:39.365  INFO 39112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 21:00:39.407  INFO 39112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 21:00:44.380  INFO 39191 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 39191 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 21:00:44.383  INFO 39191 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 21:00:44.478  INFO 39191 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 21:00:44.478  INFO 39191 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 21:00:45.962  INFO 39191 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 21:00:46.083  INFO 39191 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 6 JPA repository interfaces.
+2022-12-04 21:00:47.400  INFO 39191 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 21:00:47.415  INFO 39191 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 21:00:47.415  INFO 39191 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 21:00:47.527  INFO 39191 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 21:00:47.529  INFO 39191 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3050 ms
+2022-12-04 21:00:48.010  INFO 39191 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 21:00:48.044  INFO 39191 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 21:00:48.190  INFO 39191 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 21:00:48.386  INFO 39191 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 21:00:48.853  INFO 39191 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 21:00:48.869  INFO 39191 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 21:00:50.232  INFO 39191 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 21:00:50.241  INFO 39191 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:00:51.413  WARN 39191 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 21:00:51.611  INFO 39191 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@620bcbba, com.soumosir.coursehubbackend.security.CorsFilter@55da5865, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6fa9529d, org.springframework.security.web.context.SecurityContextPersistenceFilter@34440ee2, org.springframework.security.web.header.HeaderWriterFilter@1375bd85, org.springframework.security.web.authentication.logout.LogoutFilter@11ac1d44, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@2559ba26, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@1933f32c, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@1e2d991f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c6006e2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ba50228, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b351dfd, org.springframework.security.web.session.SessionManagementFilter@301a8501, org.springframework.security.web.access.ExceptionTranslationFilter@e5ed994, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@487ca298]
+2022-12-04 21:00:52.258  INFO 39191 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 21:00:52.721  INFO 39191 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 21:00:52.747  INFO 39191 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 9.291 seconds (JVM running for 11.202)
+2022-12-04 21:00:52.799  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 21:00:52.942  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 21:00:53.192  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 21:00:53.320  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 21:00:53.424  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 21:00:53.521  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 21:00:53.540  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 21:00:53.588  INFO 39191 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 21:01:17.347  INFO 39191 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 21:01:17.351  INFO 39191 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 21:01:17.356  INFO 39191 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-12-04 21:02:00.795  INFO 39191 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:02:00.819  INFO 39191 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 21:02:00.856  INFO 39191 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 21:02:06.527  INFO 39250 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 39250 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 21:02:06.529  INFO 39250 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 21:02:06.628  INFO 39250 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 21:02:06.628  INFO 39250 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 21:02:08.149  INFO 39250 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 21:02:08.292  INFO 39250 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 6 JPA repository interfaces.
+2022-12-04 21:02:09.781  INFO 39250 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 21:02:09.796  INFO 39250 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 21:02:09.797  INFO 39250 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 21:02:09.913  INFO 39250 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 21:02:09.913  INFO 39250 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3284 ms
+2022-12-04 21:02:10.674  INFO 39250 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 21:02:10.720  INFO 39250 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 21:02:10.889  INFO 39250 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 21:02:11.080  INFO 39250 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 21:02:11.573  INFO 39250 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 21:02:11.589  INFO 39250 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 21:02:13.025  INFO 39250 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 21:02:13.033  INFO 39250 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:02:14.167  WARN 39250 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 21:02:14.372  INFO 39250 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@711a72a9, com.soumosir.coursehubbackend.security.CorsFilter@112a838e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f2608b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@159614fe, org.springframework.security.web.header.HeaderWriterFilter@36f1440f, org.springframework.security.web.authentication.logout.LogoutFilter@c12db1b, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@5ad68c91, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@787b2258, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@3d88f82a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49a01e9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dfd11e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62b41caa, org.springframework.security.web.session.SessionManagementFilter@5c301bb7, org.springframework.security.web.access.ExceptionTranslationFilter@311f3edf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66528198]
+2022-12-04 21:02:15.169  INFO 39250 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 21:02:15.727  INFO 39250 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 21:02:15.759  INFO 39250 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 12.157 seconds (JVM running for 13.746)
+2022-12-04 21:02:15.799  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 21:02:15.917  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 21:02:16.172  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 21:02:16.310  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 21:02:16.417  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 21:02:16.517  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 21:02:16.538  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 21:02:16.582  INFO 39250 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 21:02:27.762  INFO 39250 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 21:02:27.765  INFO 39250 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 21:02:27.792  INFO 39250 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 26 ms
+2022-12-04 21:03:39.098  WARN 39250 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s638ms).
+2022-12-04 21:05:28.897 ERROR 39250 --- [https-jsse-nio-8443-exec-1] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:05:24Z.
+2022-12-04 21:05:28.925 ERROR 39250 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:05:24Z.
+2022-12-04 21:05:35.268 ERROR 39250 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:05:24Z.
+2022-12-04 21:05:35.307 ERROR 39250 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:05:24Z.
+2022-12-04 21:06:43.268 ERROR 39250 --- [https-jsse-nio-8443-exec-6] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:05:24Z.
+2022-12-04 21:06:55.935  INFO 39250 --- [https-jsse-nio-8443-exec-3] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : jdoe ,
+2022-12-04 21:06:56.224  INFO 39250 --- [https-jsse-nio-8443-exec-3] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
+2022-12-04 21:09:05.337  INFO 39250 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:09:05.373  INFO 39250 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 21:09:05.416  INFO 39250 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 21:09:13.836  INFO 39773 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 39773 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 21:09:13.842  INFO 39773 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 21:09:13.947  INFO 39773 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 21:09:13.948  INFO 39773 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 21:09:15.267  INFO 39773 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 21:09:15.444  INFO 39773 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157 ms. Found 6 JPA repository interfaces.
+2022-12-04 21:09:16.761  INFO 39773 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 21:09:16.774  INFO 39773 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 21:09:16.774  INFO 39773 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 21:09:16.886  INFO 39773 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 21:09:16.886  INFO 39773 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2937 ms
+2022-12-04 21:09:17.320  INFO 39773 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 21:09:17.367  INFO 39773 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 21:09:17.661  INFO 39773 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 21:09:17.783  INFO 39773 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 21:09:18.355  INFO 39773 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 21:09:18.373  INFO 39773 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 21:09:19.836  INFO 39773 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 21:09:19.846  INFO 39773 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 21:09:21.163  WARN 39773 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 21:09:21.422  INFO 39773 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e1814e7, com.soumosir.coursehubbackend.security.CorsFilter@6a2e157e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27f9e6a0, org.springframework.security.web.context.SecurityContextPersistenceFilter@3966eb32, org.springframework.security.web.header.HeaderWriterFilter@5b49f30d, org.springframework.security.web.authentication.logout.LogoutFilter@6c8277d1, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@3baff2e, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@1d1b7c92, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@7840faa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4be2c65a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b2900ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fa0351c, org.springframework.security.web.session.SessionManagementFilter@5fcde4e, org.springframework.security.web.access.ExceptionTranslationFilter@1ef2d803, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57d70605]
+2022-12-04 21:09:22.193  INFO 39773 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 21:09:22.750  INFO 39773 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 21:09:22.787  INFO 39773 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.963 seconds (JVM running for 12.232)
+2022-12-04 21:09:22.848  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 21:09:22.951  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 21:09:23.177  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 21:09:23.296  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 21:09:23.397  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 21:09:23.496  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 21:09:23.541  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 21:09:23.578  INFO 39773 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 21:09:33.459  INFO 39773 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 21:09:33.461  INFO 39773 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 21:09:33.466  INFO 39773 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-12-04 21:42:47.957  WARN 39773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m27s985ms).
+2022-12-04 21:43:33.447  WARN 39773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s491ms).
+2022-12-04 21:51:11.748  WARN 39773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m38s299ms).
+2022-12-04 22:09:04.109  INFO 39773 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:09:04.146  INFO 39773 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 22:09:04.195  INFO 39773 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 22:09:15.851  INFO 43059 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 43059 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 22:09:15.853  INFO 43059 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 22:09:16.067  INFO 43059 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 22:09:16.068  INFO 43059 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 22:09:17.592  INFO 43059 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 22:09:17.740  INFO 43059 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125 ms. Found 6 JPA repository interfaces.
+2022-12-04 22:09:19.147  INFO 43059 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 22:09:19.162  INFO 43059 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 22:09:19.162  INFO 43059 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 22:09:19.277  INFO 43059 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 22:09:19.277  INFO 43059 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3208 ms
+2022-12-04 22:09:19.820  INFO 43059 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 22:09:19.926  INFO 43059 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 22:09:20.131  INFO 43059 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 22:09:20.264  INFO 43059 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 22:09:20.852  INFO 43059 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 22:09:20.870  INFO 43059 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 22:09:22.502  INFO 43059 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 22:09:22.516  INFO 43059 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:09:23.629  WARN 43059 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 22:09:23.838  INFO 43059 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@149ba896, com.soumosir.coursehubbackend.security.CorsFilter@2a2874d5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f3dd6ab, org.springframework.security.web.context.SecurityContextPersistenceFilter@65de633c, org.springframework.security.web.header.HeaderWriterFilter@5aa5c74b, org.springframework.security.web.authentication.logout.LogoutFilter@19e4cc51, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@30350467, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@7923c5ef, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@10c488c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@297fe4cd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5fcde4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@217d9cff, org.springframework.security.web.session.SessionManagementFilter@70e4f63e, org.springframework.security.web.access.ExceptionTranslationFilter@70c8c5b9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38632f4d]
+2022-12-04 22:09:24.556  INFO 43059 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 22:09:25.147  INFO 43059 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 22:09:25.173  INFO 43059 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 11.525 seconds (JVM running for 12.688)
+2022-12-04 22:09:25.229  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 22:09:25.333  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 22:09:25.574  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 22:09:25.692  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 22:09:25.796  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 22:09:25.893  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 22:09:25.913  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 22:09:25.950  INFO 43059 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 22:09:38.795  INFO 43059 --- [https-jsse-nio-8443-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 22:09:38.801  INFO 43059 --- [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 22:09:38.813  INFO 43059 --- [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2022-12-04 22:09:39.003 ERROR 43059 --- [https-jsse-nio-8443-exec-1] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:46:56Z.
+2022-12-04 22:09:39.003 ERROR 43059 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:46:56Z.
+2022-12-04 22:09:39.043 ERROR 43059 --- [https-jsse-nio-8443-exec-5] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:46:56Z.
+2022-12-04 22:09:39.043 ERROR 43059 --- [https-jsse-nio-8443-exec-2] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-05T02:46:56Z.
+2022-12-04 22:09:46.310  INFO 43059 --- [https-jsse-nio-8443-exec-4] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : jdoe ,
+2022-12-04 22:09:46.622  INFO 43059 --- [https-jsse-nio-8443-exec-4] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
+2022-12-04 22:11:04.001  INFO 43059 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : jdoe ,
+2022-12-04 22:11:04.131  INFO 43059 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
+2022-12-04 22:12:31.556  WARN 43059 --- [https-jsse-nio-8443-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'courseId' for method parameter type Long is not present]
+2022-12-04 22:15:14.801  INFO 43059 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:15:14.831  INFO 43059 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 22:15:14.888  INFO 43059 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 22:15:24.746  INFO 43347 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 43347 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 22:15:24.807  INFO 43347 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 22:15:25.455  INFO 43347 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 22:15:25.455  INFO 43347 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 22:15:27.163  INFO 43347 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 22:15:27.312  INFO 43347 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 6 JPA repository interfaces.
+2022-12-04 22:15:28.797  INFO 43347 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 22:15:28.810  INFO 43347 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 22:15:28.810  INFO 43347 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 22:15:28.930  INFO 43347 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 22:15:28.930  INFO 43347 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3473 ms
+2022-12-04 22:15:29.504  INFO 43347 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 22:15:29.547  INFO 43347 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 22:15:29.814  INFO 43347 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 22:15:29.939  INFO 43347 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 22:15:30.433  INFO 43347 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 22:15:30.448  INFO 43347 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 22:15:32.044  INFO 43347 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 22:15:32.054  INFO 43347 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:15:33.681  WARN 43347 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 22:15:33.942  INFO 43347 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72673a84, com.soumosir.coursehubbackend.security.CorsFilter@3aabaf50, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76ed1bcf, org.springframework.security.web.context.SecurityContextPersistenceFilter@519eedf3, org.springframework.security.web.header.HeaderWriterFilter@16a4c0b9, org.springframework.security.web.authentication.logout.LogoutFilter@36c391a4, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@7bdf9e21, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@302738c4, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@5711c0bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2985f5c6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cf60b93, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49bc8af1, org.springframework.security.web.session.SessionManagementFilter@3fc1b527, org.springframework.security.web.access.ExceptionTranslationFilter@fb1bb4f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f8b99f]
+2022-12-04 22:15:34.828  INFO 43347 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 22:15:35.345  INFO 43347 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 22:15:35.373  INFO 43347 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 13.2 seconds (JVM running for 14.261)
+2022-12-04 22:15:35.431  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 22:15:35.577  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 22:15:35.857  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 22:15:35.978  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 22:15:36.084  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 22:15:36.228  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 22:15:36.255  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 22:15:36.362  INFO 43347 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 22:15:39.003  INFO 43347 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:15:39.024  INFO 43347 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 22:15:39.065  INFO 43347 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 22:15:47.998  INFO 43374 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 43374 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 22:15:48.006  INFO 43374 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 22:15:48.102  INFO 43374 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 22:15:48.104  INFO 43374 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 22:15:49.533  INFO 43374 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 22:15:49.661  INFO 43374 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 6 JPA repository interfaces.
+2022-12-04 22:15:51.125  INFO 43374 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 22:15:51.145  INFO 43374 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 22:15:51.146  INFO 43374 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 22:15:51.267  INFO 43374 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 22:15:51.268  INFO 43374 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3164 ms
+2022-12-04 22:15:51.919  INFO 43374 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 22:15:51.959  INFO 43374 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 22:15:52.277  INFO 43374 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 22:15:52.439  INFO 43374 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 22:15:52.956  INFO 43374 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 22:15:52.972  INFO 43374 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 22:15:54.388  INFO 43374 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 22:15:54.396  INFO 43374 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:15:55.570  WARN 43374 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 22:15:55.855  INFO 43374 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70fcfd5b, com.soumosir.coursehubbackend.security.CorsFilter@3965bb34, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a8df85b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dfd11e0, org.springframework.security.web.header.HeaderWriterFilter@49a01e9e, org.springframework.security.web.authentication.logout.LogoutFilter@6c029360, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@65929d61, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@7293b2ad, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@663b0bd0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@797e6b10, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a951f9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23b1786c, org.springframework.security.web.session.SessionManagementFilter@3f508d12, org.springframework.security.web.access.ExceptionTranslationFilter@159614fe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@112a838e]
+2022-12-04 22:15:56.677  INFO 43374 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 22:15:57.239  INFO 43374 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 22:15:57.269  INFO 43374 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 11.461 seconds (JVM running for 12.617)
+2022-12-04 22:15:57.328  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 22:15:57.425  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 22:15:57.722  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 22:15:57.867  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 22:15:57.978  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 22:15:58.080  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 22:15:58.103  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 22:15:58.141  INFO 43374 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 22:16:36.520  INFO 43374 --- [https-jsse-nio-8443-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 22:16:36.526  INFO 43374 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 22:16:36.530  INFO 43374 --- [https-jsse-nio-8443-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-12-04 22:18:04.183  WARN 43374 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m11s87ms).
+2022-12-04 22:24:52.028  INFO 43374 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:24:52.090  INFO 43374 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-04 22:24:52.135  INFO 43374 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-04 22:25:01.204  INFO 44168 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 44168 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-04 22:25:01.212  INFO 44168 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-04 22:25:01.334  INFO 44168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-04 22:25:01.335  INFO 44168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-04 22:25:02.744  INFO 44168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-04 22:25:02.872  INFO 44168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 6 JPA repository interfaces.
+2022-12-04 22:25:04.152  INFO 44168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-04 22:25:04.167  INFO 44168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-04 22:25:04.168  INFO 44168 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-04 22:25:04.279  INFO 44168 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-04 22:25:04.279  INFO 44168 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2944 ms
+2022-12-04 22:25:04.745  INFO 44168 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-04 22:25:04.779  INFO 44168 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-04 22:25:05.006  INFO 44168 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-04 22:25:05.131  INFO 44168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-04 22:25:05.606  INFO 44168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-04 22:25:05.622  INFO 44168 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-04 22:25:07.151  INFO 44168 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-04 22:25:07.160  INFO 44168 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-04 22:25:08.342  WARN 44168 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-04 22:25:08.591  INFO 44168 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a296206, com.soumosir.coursehubbackend.security.CorsFilter@255f7e01, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b38c58e, org.springframework.security.web.context.SecurityContextPersistenceFilter@58a4a8b8, org.springframework.security.web.header.HeaderWriterFilter@41fae076, org.springframework.security.web.authentication.logout.LogoutFilter@7d75211a, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@523beac7, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@43139bd4, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@1de25ac1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c3dcc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7727056, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@701be846, org.springframework.security.web.session.SessionManagementFilter@c991155, org.springframework.security.web.access.ExceptionTranslationFilter@6b71bc12, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7675bcfb]
+2022-12-04 22:25:09.287  INFO 44168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-04 22:25:09.746  INFO 44168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-04 22:25:09.774  INFO 44168 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.898 seconds (JVM running for 12.002)
+2022-12-04 22:25:09.824  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-04 22:25:09.980  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-04 22:25:10.211  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-04 22:25:10.335  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-04 22:25:10.437  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user bbacca to database
+2022-12-04 22:25:10.535  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user vin to database
+2022-12-04 22:25:10.554  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-04 22:25:10.585  INFO 44168 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-04 22:25:23.119  INFO 44168 --- [https-jsse-nio-8443-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-04 22:25:23.122  INFO 44168 --- [https-jsse-nio-8443-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-04 22:25:23.132  INFO 44168 --- [https-jsse-nio-8443-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -159,7 +160,7 @@ public class CourseController {
         return ResponseEntity.ok().body(courseService.getWishlistCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
     }
 
-    @PostMapping("/course/submitexam")
+    @PostMapping("/exam/submit")
     public ResponseEntity<?> submitExam(@RequestBody ExamForm form,Authentication authentication,HttpServletResponse response) throws IOException {
         try {
             ExamResult result = courseService.submitExam(authentication.getPrincipal().toString(),form.examId, form.answers);
@@ -176,6 +177,15 @@ public class CourseController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/courseresult/{id}")
+    public ResponseEntity<List<ExamResult>> getResultByCourseId(@PathVariable Long id,Authentication authentication){
+
+        List<ExamResult> results = courseService.getResultByCourseId(id,authentication.getPrincipal().toString());
+        return ResponseEntity.ok().body(results);
+    }
+
+
 
 
 

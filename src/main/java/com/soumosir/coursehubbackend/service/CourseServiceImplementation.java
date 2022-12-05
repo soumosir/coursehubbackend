@@ -192,6 +192,24 @@ public class CourseServiceImplementation implements CourseService{
     }
 
     @Override
+    public List<ExamResult> getResultByCourseId(Long courseId, String username) {
+        Course course = courseRepo.findById(courseId).orElseThrow(()->{
+            throw new ResourceNotFoundException("course not found");
+        });
+        AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
+
+
+        Collection<Exam> exams  = course.getExams();
+        Collection<ExamResult> examResults =  resultRepo.findByUserAndExamIsIn(appUser,exams);
+        examResults.forEach(examResult -> {
+            examResult.setUser(null);
+        });
+
+        return (List<ExamResult>)examResults;
+
+    }
+
+    @Override
     public Exam getExam(Long id) {
         Exam exam  = examRepo.findById(id).orElseThrow(()->{
             throw new ResourceNotFoundException("Exam not found");
@@ -205,6 +223,7 @@ public class CourseServiceImplementation implements CourseService{
         return exams;
     }
 
+
     @Override
     public ExamResult submitExam(String username,Long examId, String userAnswers) throws JSONException {
 
@@ -212,6 +231,11 @@ public class CourseServiceImplementation implements CourseService{
         Exam exam  = examRepo.findById(examId).orElseThrow(() ->
                 new ResourceNotFoundException(String.format("exam id {} not present!",examId))
         );
+
+        ExamResult examResult1 = resultRepo.findByExamAndUser(exam,appUser);
+        if(examResult1!=null && examResult1.getMarks()!=-1){
+            throw new ResourceNotFoundException("You have already given the exam and your score was "+examResult1.getMarks()+ "%");
+        }
 
         String correctAnswers = exam.getAnswers();
 
@@ -227,7 +251,10 @@ public class CourseServiceImplementation implements CourseService{
                 }
             }
         }
-        ExamResult examResult = new ExamResult(null,marks,appUser,exam);
+        double m = (double)(marks) / (double)(correctAnswersMap.entrySet().size());
+        marks = (long)(m*100L);
+
+        ExamResult examResult = new ExamResult(null,marks,userAnswers,appUser,exam);
         return resultRepo.save(examResult);
     }
 

@@ -32,6 +32,8 @@ public class ExamResult {
     @NotNull
     private long marks;
 
+    private String answers;
+
     @OneToOne(fetch = EAGER)
     private AppUser user;
 

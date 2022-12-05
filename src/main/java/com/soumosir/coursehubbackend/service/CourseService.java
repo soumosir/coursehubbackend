@@ -43,5 +43,7 @@ public interface CourseService {
     Exam getExam(Long id);
 
     List<Exam> getExams(String username);
+
+    List<ExamResult> getResultByCourseId(Long courseId, String username);
 }
 
