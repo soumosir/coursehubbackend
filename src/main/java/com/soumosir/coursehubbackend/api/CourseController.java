@@ -45,12 +45,10 @@ public class CourseController {
     }
 
     @GetMapping("/exam/{id}")
-    public ResponseEntity<JSONObject> getExam(@PathVariable Long id){
+    public ResponseEntity<Exam> getExam(@PathVariable Long id){
         Exam exam  = courseService.getExam(id);
-        HashMap<String,String> questions = new HashMap<>();
-        questions.put("questions",exam.getQuestions());
-        JSONObject jObject = new JSONObject(questions);
-        return ResponseEntity.ok().body(jObject);
+        exam.setAnswers(null);
+        return ResponseEntity.ok().body(exam);
     }
 
     @PostMapping("/content")
