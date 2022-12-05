@@ -81,32 +81,38 @@ public class Coursehubbackend {
 //			Exam exam3 = courseService.saveExam(new Exam(null,"Final Assessment","EXAM",120L,questionsS,answersS));
 
 			Content content1 = courseService.saveContent(new Content(
-					null, "Sorting Algorithms Review","video","google.com",appUser2.getUsername()
+					null, "Sorting Algorithms Review","video","google.com",appUser2.getUsername(),"This content has a description"
 			));
 			Content content2 = courseService.saveContent(new Content(
-					null, "Sorting Algorithms Deep Dive","image","google.com",appUser2.getUsername()
+					null, "Sorting Algorithms Deep Dive","image","google.com",appUser2.getUsername(),"A data structure is a named location that can be used to store and organize data."
 			));
 
 
 			Course course1 = courseService.saveCourse(new Course(null,"Data Structures and Algorithm","ENPM809W","A data structure is a named location that can be used to store and organize data. ",appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
-					60L,
+					5L,
+					4L,
 					null,
 					null,
-					null,List.of(appUser2)));
+					null,
+					List.of(appUser2)));
 
 			Course course2 = courseService.saveCourse(new Course(null,"Human Computer Interaction","ENPM312","Human-computer interaction (HCI) is a multidisciplinary field of study focusing on the design of computer technology.",appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
-					60L,
+					20L,
+					19L,
 					null,
-					null,List.of(appUser2),List.of(appUser3)));
+					null,
+					List.of(appUser2),
+					List.of(appUser3)));
 
 			Course course3 = courseService.saveCourse(new Course(null,"Software Design and Implementation","ENPM613","The implementation stage of software development is the process of developing an executable system for delivery to the customer. Sometimes this involves separate activities of software design and programming. ." ,appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
+					59L,
 					null,
 					null,List.of(appUser4),List.of(appUser3)));
 
@@ -114,6 +120,7 @@ public class Coursehubbackend {
 					Timestamp.valueOf(LocalDateTime.now()),
 					Timestamp.valueOf(LocalDateTime.now()),
 					60L,
+					59L,
 					null,
 					null,List.of(appUser4),List.of(appUser3)));
 

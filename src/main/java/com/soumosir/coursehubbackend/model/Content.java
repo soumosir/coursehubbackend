@@ -44,6 +44,9 @@ public class Content {
     private String username;
 
 
+    private String description;
+
+
     public void validate() throws ValidationException {
 
 

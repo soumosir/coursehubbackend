@@ -47,6 +47,8 @@ public class Course {
     @NotNull
     private Long totalSeats;
 
+    private Long remainingSeats;
+
     @OneToMany(fetch = LAZY)
     private Collection<Content> contents;
 

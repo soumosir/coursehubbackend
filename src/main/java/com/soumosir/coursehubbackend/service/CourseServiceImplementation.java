@@ -99,7 +99,7 @@ public class CourseServiceImplementation implements CourseService{
     }
 
 
-    @Override
+    @Override @Transactional
     public void enrollCourse(String username, Long courseId) throws Exception {
 
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
@@ -109,8 +109,15 @@ public class CourseServiceImplementation implements CourseService{
             new ResourceNotFoundException("Course already enrolled ");
         }
 
-        if(course.getEnrolledUsers().size()<course.getTotalSeats()) {
+        if(course.getEnrolledUsers().size()<=course.getTotalSeats()) {
+            Long seats = course.getRemainingSeats();
+            if(seats<=0){
+                throw new Exception("Unable to enroll "+appUser.getUsername()+". Not available seats.");
+            }
+
             log.info("Enrol to course to user  -> " + username + " -> " + courseId);
+            seats-=1L;
+            course.setRemainingSeats(seats);
             course.getEnrolledUsers().add(appUser);
         }
         else{
@@ -160,7 +167,7 @@ public class CourseServiceImplementation implements CourseService{
 
 
 
-    @Override
+    @Override @Transactional
     public void unenrollCourse(String username, Long courseId) {
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
@@ -168,6 +175,8 @@ public class CourseServiceImplementation implements CourseService{
         if(!course.getEnrolledUsers().contains(appUser)){
             new ResourceNotFoundException("Course not  enrolled ");
         }
+        Long seats = course.getRemainingSeats();
+        course.setRemainingSeats(seats+1L);
         course.getEnrolledUsers().remove(appUser);
 
     }

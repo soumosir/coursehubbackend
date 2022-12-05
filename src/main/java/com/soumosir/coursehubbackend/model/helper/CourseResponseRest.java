@@ -48,6 +48,7 @@ public class CourseResponseRest {
     @NotEmpty
     @NotNull
     private Long totalSeats;
+    private Long remainingSeats;
 
     private Collection<Content> contents;
     private Collection<Exam> exams;
@@ -60,6 +61,7 @@ public class CourseResponseRest {
         this.startTime = course.getStartTime();
         this.endTime = course.getEndTime();
         this.totalSeats = course.getTotalSeats();
+        this.remainingSeats = course.getRemainingSeats();
         this.instructor = course.getInstructor();
 
     }
@@ -72,6 +74,7 @@ public class CourseResponseRest {
         this.startTime = course.getStartTime();
         this.endTime = course.getEndTime();
         this.totalSeats = course.getTotalSeats();
+        this.remainingSeats = course.getRemainingSeats();
         this.instructor = course.getInstructor();
         this.contents = course.getContents();
         Collection<Exam> exams = course.getExams();
