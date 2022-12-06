@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -88,6 +89,9 @@ public class CourseController {
     @PostMapping("/course")
     public ResponseEntity<Course> postCourse(@RequestBody Course course, Authentication authentication){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
+        if(course.getInstructor()!=null && !Objects.equals(course.getInstructor(), authentication.getPrincipal().toString())){
+            return ResponseEntity.badRequest().build();
+        }
         Collection<Content> savedContent = new ArrayList<>();
         course.getContents().forEach(content -> {
             content.setUsername(authentication.getPrincipal().toString());
