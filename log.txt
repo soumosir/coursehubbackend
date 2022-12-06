@@ -1721,3 +1721,6 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 's
 2022-12-05 21:19:12.241  INFO 10549 --- [https-jsse-nio-8443-exec-10] c.s.c.s.CustomAuthenticationFilter       : User somesh successfully logged in 
 2022-12-05 21:19:22.263  INFO 10549 --- [https-jsse-nio-8443-exec-5] c.s.c.s.CourseServiceImplementation      : Enrol to course to user  -> somesh -> 14
 2022-12-05 21:19:33.213  INFO 10549 --- [https-jsse-nio-8443-exec-5] c.s.c.s.EmailServiceImplementation       : Email sent to mehta636@umd.edu 
+2022-12-05 21:22:00.732  INFO 10549 --- [https-jsse-nio-8443-exec-5] c.s.c.s.EmailServiceImplementation       : Email sent to mehta636@umd.edu 
+2022-12-05 21:22:16.266  INFO 10549 --- [https-jsse-nio-8443-exec-3] c.s.c.s.CourseServiceImplementation      : Add to wishlist course to user  -> somesh -> 14
+2022-12-05 21:22:17.800  INFO 10549 --- [https-jsse-nio-8443-exec-3] c.s.c.s.EmailServiceImplementation       : Email sent to mehta636@umd.edu 
