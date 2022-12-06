@@ -29,7 +29,7 @@ public class EmailServiceImplementation implements EmailService {
            helper.setFrom("soumosirmaryland@gmail.com", "Course Hub Support");
            helper.setTo(email);
 
-           String subject = "Otp to reset your password";
+           String subject = "Notification from Course Hub!";
 
            String content = "<p>Hello, "+username+"</p>"
                    + "<p>"+emailDisplayText+"</p>";
