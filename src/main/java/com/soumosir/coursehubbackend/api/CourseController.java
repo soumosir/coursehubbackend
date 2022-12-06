@@ -110,6 +110,11 @@ public class CourseController {
         return ResponseEntity.ok().body(courseService.getCourses().stream().map(CourseResponseRest::new).collect(Collectors.toList()));
     }
 
+    @GetMapping("/createdcourses")
+    public ResponseEntity<List<CourseResponseRest>> getCreatedCourses(Authentication authentication){
+        return ResponseEntity.ok().body(courseService.getCourses(authentication.getPrincipal().toString()).stream().map(CourseResponseRest::new).collect(Collectors.toList()));
+    }
+
     @GetMapping("/course/{id}")
     public ResponseEntity<CourseResponseRest> getCourses(@PathVariable Long id){
         Course course  = courseService.getCourse(id);

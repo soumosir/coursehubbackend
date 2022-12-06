@@ -13,4 +13,5 @@ public interface CourseRepo extends JpaRepository<Course, Long> {
     List<Course> findByWishlistUsers(AppUser appUser);
     List<Course> findByExams(Exam exam);
     List<Course> findByContents(Content content);
+    List<Course> findByInstructor(String instructor);
 }

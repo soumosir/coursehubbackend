@@ -41,14 +41,20 @@ public class Coursehubbackend {
 		return args -> {
             userService.saveRole(new Role(null, "ROLE_USER"));
             userService.saveRole(new Role(null, "ROLE_ADMIN"));
+			userService.saveRole(new Role(null, "ROLE_INSTRUCTOR"));
 
             AppUser appUser1 = userService.saveUser(new AppUser(null, "Soumosir Dutta", "sdutta", "sdutta7@umd.edu", "Maryland@1234567", new ArrayList<>()));
             AppUser appUser2 = userService.saveUser(new AppUser(null, "John Doe", "jdoe", "soumosir@gmail.com", "Maryland@1234567", new ArrayList<>()));
-            AppUser appUser3 = userService.saveUser(new AppUser(null, "Burry Bacca", "bbacca", "bscscs@ycns.com", "Maryland@1234567", new ArrayList<>()));
-            AppUser appUser4 = userService.saveUser(new AppUser(null, "Vincent Yu", "vin", "soumosirdutta@gmail.com", "Maryland@1234", new ArrayList<>()));
+            AppUser appUser3 = userService.saveUser(new AppUser(null, "Junaid Sher", "junaid", "bscscs@ycns.com", "Maryland@1234567", new ArrayList<>()));
+            AppUser appUser4 = userService.saveUser(new AppUser(null, "Somesh Salman", "somesh", "soumosirdutta@gmail.com", "Maryland@1234567", new ArrayList<>()));
+			AppUser appUser5 = userService.saveUser(new AppUser(null, "Pranav", "pranav", "soumo@gmail.com", "Maryland@1234567", new ArrayList<>()));
+			AppUser appUser6 = userService.saveUser(new AppUser(null, "Vincent Yu", "somesh123", "soumostta@gmail.com", "Maryland@1234567", new ArrayList<>()));
 
-            userService.addRoleToUser("sdutta", "ROLE_ADMIN");
+
+
+			userService.addRoleToUser("sdutta", "ROLE_ADMIN");
 			userService.addRoleToUser("jdoe", "ROLE_INSTRUCTOR");
+			userService.addRoleToUser("junaid", "ROLE_INSTRUCTOR");
 
 			Map<String,List<String>> questions = new HashMap<>();
 			questions.put("what is 1+1?",List.of("3","2","1","0"));
@@ -96,7 +102,7 @@ public class Coursehubbackend {
 					null,
 					null,
 					null,
-					List.of(appUser2)));
+					List.of(appUser5)));
 
 			Course course2 = courseService.saveCourse(new Course(null,"Human Computer Interaction","ENPM312","Human-computer interaction (HCI) is a multidisciplinary field of study focusing on the design of computer technology.",appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
@@ -105,8 +111,8 @@ public class Coursehubbackend {
 					19L,
 					null,
 					null,
-					List.of(appUser2),
-					List.of(appUser3)));
+					List.of(appUser4),
+					List.of(appUser5)));
 
 			Course course3 = courseService.saveCourse(new Course(null,"Software Design and Implementation","ENPM613","The implementation stage of software development is the process of developing an executable system for delivery to the customer. Sometimes this involves separate activities of software design and programming. ." ,appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
@@ -114,7 +120,7 @@ public class Coursehubbackend {
 					60L,
 					59L,
 					null,
-					null,List.of(appUser4),List.of(appUser3)));
+					null,List.of(appUser4),List.of(appUser5)));
 
 			Course course4 = courseService.saveCourse(new Course(null,"Object Oriented Programming","ENPM083","The object oriented stage of software development is the process of developing an executable system for delivery to the customer. s." ,appUser2.getUsername(),
 					Timestamp.valueOf(LocalDateTime.now()),
@@ -122,7 +128,15 @@ public class Coursehubbackend {
 					60L,
 					59L,
 					null,
-					null,List.of(appUser4),List.of(appUser3)));
+					null,List.of(appUser5),List.of(appUser4)));
+
+			Course course5 = courseService.saveCourse(new Course(null,"Object Oriented Programming 2","ENPM283","The object 2 oriented stage of software development is the process of developing an executable system for delivery to the customer. s." ,appUser3.getUsername(),
+					Timestamp.valueOf(LocalDateTime.now()),
+					Timestamp.valueOf(LocalDateTime.now()),
+					5L,
+					1L,
+					null,
+					null,List.of(appUser5),List.of(appUser4)));
 
 			courseService.addContent(content1.getId(),course1.getId());
 			courseService.addContent(content2.getId(),course1.getId());

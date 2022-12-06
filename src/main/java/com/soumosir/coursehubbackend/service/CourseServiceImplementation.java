@@ -33,6 +33,12 @@ public class CourseServiceImplementation implements CourseService{
     }
 
     @Override
+    public List<Course> getCourses(String instructorName) {
+        AppUser appUser = appUserRepo.findByUsername(instructorName).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + instructorName));
+        return courseRepo.findByInstructor(appUser.getUsername());
+    }
+
+    @Override
     public Course saveCourse(Course course){
         course.validate();
         courseRepo.save(course);

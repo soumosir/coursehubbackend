@@ -71,10 +71,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(DELETE, "/api/role/**").hasAnyAuthority("ROLE_ADMIN");
 
 
-        http.authorizeRequests().antMatchers(GET, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(POST, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(PUT, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-        http.authorizeRequests().antMatchers(DELETE, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+        http.authorizeRequests().antMatchers(GET, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER","ROLE_INSTRUCTOR");
+        http.authorizeRequests().antMatchers(POST, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_INSTRUCTOR");
+        http.authorizeRequests().antMatchers(PUT, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_INSTRUCTOR");
+        http.authorizeRequests().antMatchers(DELETE, "/api/course/**").hasAnyAuthority("ROLE_ADMIN","ROLE_INSTRUCTOR");
 
         http.authorizeRequests().antMatchers(GET, "/api/exam/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER","ROLE_INSTRUCTOR");
         http.authorizeRequests().antMatchers(POST, "/api/exam/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
@@ -84,6 +84,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(GET, "/api/courseresult/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER","ROLE_INSTRUCTOR");
 
         http.authorizeRequests().antMatchers(GET, "/api/content/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER","ROLE_INSTRUCTOR");
+        http.authorizeRequests().antMatchers(POST, "/api/content/**").hasAnyAuthority("ROLE_INSTRUCTOR");
+
+        http.authorizeRequests().antMatchers(GET, "/api/createdcourses/**").hasAnyAuthority("ROLE_INSTRUCTOR");
 
         http.authorizeRequests().anyRequest().authenticated();
 //        we add a custom filter

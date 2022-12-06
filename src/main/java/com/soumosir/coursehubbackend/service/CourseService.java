@@ -9,6 +9,7 @@ import java.util.List;
 public interface CourseService {
 
     List<Course> getCourses();
+    List<Course> getCourses(String instructorName);
     Course saveCourse(Course course);
     Course updateCourse(Course course);
     void deleteCourse(Long id);
