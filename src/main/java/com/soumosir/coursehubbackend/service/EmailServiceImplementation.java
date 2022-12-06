@@ -26,7 +26,7 @@ public class EmailServiceImplementation implements EmailService {
 
            MimeMessage message = emailSender.createMimeMessage();
            MimeMessageHelper helper = new MimeMessageHelper(message);
-           helper.setFrom("soumosirmarylandd@gmail.com", "Course Hub Support");
+           helper.setFrom("soumosirmaryland@gmail.com", "Course Hub Support");
            helper.setTo(email);
 
            String subject = "Otp to reset your password";
