@@ -1444,3 +1444,39 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 's
 2022-12-05 20:39:16.504  INFO 7291 --- [https-jsse-nio-8443-exec-8] c.s.c.s.CustomAuthenticationFilter       : User jdoe successfully logged in 
 2022-12-05 20:41:32.019  INFO 7291 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : Attempting login for Username : somesh ,
 2022-12-05 20:41:32.155  INFO 7291 --- [https-jsse-nio-8443-exec-7] c.s.c.s.CustomAuthenticationFilter       : User somesh successfully logged in 
+2022-12-05 20:47:32.247  INFO 7999 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Starting Coursehubbackend using Java 11.0.2 on SOUMODUT-M-7J90 with PID 7999 (/Users/soumosir/Documents/enpm613/coursehubbackend/target/classes started by soumosir in /Users/soumosir/Documents/enpm613/coursehubbackend)
+2022-12-05 20:47:32.249  INFO 7999 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 20:47:32.433  INFO 7999 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-05 20:47:32.434  INFO 7999 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-05 20:47:34.032  INFO 7999 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 20:47:34.163  INFO 7999 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 6 JPA repository interfaces.
+2022-12-05 20:47:35.532  INFO 7999 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-12-05 20:47:35.548  INFO 7999 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 20:47:35.548  INFO 7999 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-05 20:47:35.688  INFO 7999 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 20:47:35.688  INFO 7999 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3254 ms
+2022-12-05 20:47:36.203  INFO 7999 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 20:47:36.238  INFO 7999 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-05 20:47:36.431  INFO 7999 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-05 20:47:36.538  INFO 7999 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-05 20:47:37.054  INFO 7999 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-05 20:47:37.071  INFO 7999 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-12-05 20:47:38.562  INFO 7999 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 20:47:38.573  INFO 7999 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 20:47:39.835  WARN 7999 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 20:47:40.046  INFO 7999 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59fd5a1, com.soumosir.coursehubbackend.security.CorsFilter@6b3f25fd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3cfe2027, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a94a2ac, org.springframework.security.web.header.HeaderWriterFilter@9223370, org.springframework.security.web.authentication.logout.LogoutFilter@5b96ea3f, com.soumosir.coursehubbackend.securityfilter.CustomAuthorizationFilter@2ca3982b, com.soumosir.coursehubbackend.securityfilter.CustomAuthenticationFilter@576a72c3, com.soumosir.coursehubbackend.securityfilter.CustomRateLimitingFilter@4568b51e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a8d1a40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a0441bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8da4a8c, org.springframework.security.web.session.SessionManagementFilter@30e74b36, org.springframework.security.web.access.ExceptionTranslationFilter@7751635a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7dea7b13]
+2022-12-05 20:47:40.751  INFO 7999 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-05 20:47:41.220  INFO 7999 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-12-05 20:47:41.242  INFO 7999 --- [restartedMain] c.s.coursehubbackend.Coursehubbackend    : Started Coursehubbackend in 10.476 seconds (JVM running for 12.318)
+2022-12-05 20:47:41.279  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_USER
+2022-12-05 20:47:41.419  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_ADMIN
+2022-12-05 20:47:41.436  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new role to database ROLE_INSTRUCTOR
+2022-12-05 20:47:41.677  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user sdutta to database
+2022-12-05 20:47:41.813  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user jdoe to database
+2022-12-05 20:47:41.923  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user junaid to database
+2022-12-05 20:47:42.024  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user somesh to database
+2022-12-05 20:47:42.125  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user pranav to database
+2022-12-05 20:47:42.225  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Saving new user somesh123 to database
+2022-12-05 20:47:42.252  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
+2022-12-05 20:47:42.289  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
+2022-12-05 20:47:42.311  INFO 7999 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> junaid -> ROLE_INSTRUCTOR

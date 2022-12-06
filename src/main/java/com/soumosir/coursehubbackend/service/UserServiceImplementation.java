@@ -82,7 +82,7 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
         log.info("Add role to user to database -> "+username+" -> "+roleName);
         AppUser appUser = appUserRepo.findByUsername(username).stream().findFirst().orElseThrow(() -> new ResourceNotFoundException("user does not exist with username: " + username));
         Role role = roleRepo.findByName(roleName);
-        appUser.getRoles().add(role);
+        appUser.setRoles(List.of(role));
     }
 
     @Override
