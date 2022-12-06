@@ -45,10 +45,10 @@ public class Coursehubbackend {
 
             AppUser appUser1 = userService.saveUser(new AppUser(null, "Soumosir Dutta", "sdutta", "sdutta7@umd.edu", "Maryland@1234567", new ArrayList<>()));
             AppUser appUser2 = userService.saveUser(new AppUser(null, "John Doe", "jdoe", "soumosir@gmail.com", "Maryland@1234567", new ArrayList<>()));
-            AppUser appUser3 = userService.saveUser(new AppUser(null, "Junaid Sher", "junaid", "bscscs@ycns.com", "Maryland@1234567", new ArrayList<>()));
-            AppUser appUser4 = userService.saveUser(new AppUser(null, "Somesh Salman", "somesh", "soumosirdutta@gmail.com", "Maryland@1234567", new ArrayList<>()));
-			AppUser appUser5 = userService.saveUser(new AppUser(null, "Pranav", "pranav", "soumo@gmail.com", "Maryland@1234567", new ArrayList<>()));
-			AppUser appUser6 = userService.saveUser(new AppUser(null, "Vincent Yu", "somesh123", "soumostta@gmail.com", "Maryland@1234567", new ArrayList<>()));
+            AppUser appUser3 = userService.saveUser(new AppUser(null, "Junaid Sher", "junaid", "jayzaidi@umd.edu", "Maryland@1234567", new ArrayList<>()));
+            AppUser appUser4 = userService.saveUser(new AppUser(null, "Somesh Salman", "somesh", "mehta636@umd.edu", "Maryland@1234567", new ArrayList<>()));
+			AppUser appUser5 = userService.saveUser(new AppUser(null, "Pranav Pedri", "pranav", "pparab@umd.edu", "Maryland@1234567", new ArrayList<>()));
+			AppUser appUser6 = userService.saveUser(new AppUser(null, "Vincent Yu", "somesh123", "mehta.somesh636@gmail.com", "Maryland@1234567", new ArrayList<>()));
 
 
 

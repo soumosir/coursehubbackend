@@ -21,7 +21,7 @@ public class EmailServiceImplementation implements EmailService {
     private JavaMailSender emailSender;
 
    @Override
-   public void sendEmail(String username,String email,String code){
+   public void sendEmail(String username,String email,String emailDisplayText){
        try {
 
            MimeMessage message = emailSender.createMimeMessage();
@@ -32,9 +32,7 @@ public class EmailServiceImplementation implements EmailService {
            String subject = "Otp to reset your password";
 
            String content = "<p>Hello, "+username+"</p>"
-                   + "<p>You have requested to reset your password.</p>"
-                   + "<p>You otp code is "+ code +". </p>"
-                   + "<p>This expires in 5 mins </p>";
+                   + "<p>"+emailDisplayText+"</p>";
 
            helper.setSubject(subject);
 

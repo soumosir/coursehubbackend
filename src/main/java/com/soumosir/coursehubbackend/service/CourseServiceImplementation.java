@@ -26,6 +26,8 @@ public class CourseServiceImplementation implements CourseService{
     private final AppUserRepo appUserRepo;
     private final ResultRepo resultRepo;
 
+    private EmailService emailService;
+
 
     @Override
     public List<Course> getCourses() {
@@ -125,6 +127,13 @@ public class CourseServiceImplementation implements CourseService{
             seats-=1L;
             course.setRemainingSeats(seats);
             course.getEnrolledUsers().add(appUser);
+            try{
+                emailService.sendEmail(appUser.getName(),appUser.getEmail(),
+                        "Congratulations! You have enrolled for "+course.getName()+" ( Course code : "+course.getCode()+").");
+            }
+            catch (Exception e){
+                log.error("Unable to send email to "+appUser.getEmail());
+            }
         }
         else{
             throw new Exception("User cannot enroll . No seats allocted ");
@@ -141,6 +150,13 @@ public class CourseServiceImplementation implements CourseService{
             new ResourceNotFoundException("Wishlist already added ");
         }
         course.getWishlistUsers().add(appUser);
+        try{
+            emailService.sendEmail(appUser.getName(),appUser.getEmail(),
+                    "Congratulations! You have added course "+course.getName()+" (Course code : "+course.getCode()+") to wishlist.");
+        }
+        catch (Exception e){
+            log.error("Unable to send email to "+appUser.getEmail());
+        }
     }
 
     @Override
@@ -297,7 +313,15 @@ public class CourseServiceImplementation implements CourseService{
         marks = (long)(m*100L);
 
         ExamResult examResult = new ExamResult(null,marks,userAnswers,appUser,exam);
-        return resultRepo.save(examResult);
+        ExamResult examResult2 =  resultRepo.save(examResult);
+        try{
+            emailService.sendEmail(appUser.getName(),appUser.getEmail(),
+                    "Congratulations! You have submitted exam "+exam.getName()+" (Marks % : "+marks+").");
+        }
+        catch (Exception e){
+            log.error("Unable to send email to "+appUser.getEmail());
+        }
+        return examResult2;
     }
 
     @Override
