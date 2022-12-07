@@ -50,7 +50,7 @@ public class CourseController {
         try {
             Exam exam = courseService.getExam(id, authentication.getPrincipal().toString());
 
-            exam.setAnswers(null);
+//            exam.setAnswers(null);
             return ResponseEntity.ok().body(exam);
         }
         catch (Exception exception) {

@@ -115,7 +115,7 @@ public class CourseServiceImplementation implements CourseService{
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
 
         if(course.getEnrolledUsers().contains(appUser)){
-            new ResourceNotFoundException("Course already enrolled ");
+            throw new ResourceNotFoundException("Course already enrolled ");
         }
 
         if(course.getEnrolledUsers().size()<=course.getTotalSeats()) {
@@ -148,7 +148,7 @@ public class CourseServiceImplementation implements CourseService{
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
         log.info("Add to wishlist course to user  -> " + username + " -> " + courseId);
         if(course.getWishlistUsers().contains(appUser)){
-            new ResourceNotFoundException("Wishlist already added ");
+            throw new ResourceNotFoundException("Wishlist already added ");
         }
         course.getWishlistUsers().add(appUser);
         try{
@@ -196,7 +196,7 @@ public class CourseServiceImplementation implements CourseService{
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
 
         if(!course.getEnrolledUsers().contains(appUser)){
-            new ResourceNotFoundException("Course not  enrolled ");
+            throw new ResourceNotFoundException("Course not  enrolled ");
         }
         Long seats = course.getRemainingSeats();
         course.setRemainingSeats(seats+1L);
@@ -210,7 +210,7 @@ public class CourseServiceImplementation implements CourseService{
         Course course = courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with id: " + courseId));;
         log.info("Add to wishlist course to user  -> " + username + " -> " + courseId);
         if(!course.getWishlistUsers().contains(appUser)){
-            new ResourceNotFoundException("Wishlist not added ");
+            throw new ResourceNotFoundException("Wishlist not added ");
         }
         course.getWishlistUsers().remove(appUser);
     }
@@ -247,6 +247,9 @@ public class CourseServiceImplementation implements CourseService{
         if(courses.size()==0){
             throw new ResourceNotFoundException(String.format("Content id %s not present in any course!",id));
         }
+        if(courses.get(0).getInstructor()==appUser.getUsername()){
+            return content;
+        }
         if(!courses.get(0).getEnrolledUsers().contains(appUser)){
             throw new ResourceNotFoundException(String.format("User %s is not enrolled in the course %s hence cannot view the content!",appUser.getUsername(),courses.get(0).getName()));
         }
@@ -262,6 +265,9 @@ public class CourseServiceImplementation implements CourseService{
         List<Course> courses = courseRepo.findByExams(exam);
         if(courses.size()==0){
             throw new ResourceNotFoundException(String.format("Exam id %s not present in any course!",id));
+        }
+        if(courses.get(0).getInstructor()==appUser.getUsername()){
+            return exam;
         }
         if(!courses.get(0).getEnrolledUsers().contains(appUser)){
             throw new ResourceNotFoundException(String.format("User %s is not enrolled in the course %s hence cannot view the exam!",appUser.getUsername(),courses.get(0).getName()));
