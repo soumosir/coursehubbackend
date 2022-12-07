@@ -18,7 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
-
+*.txt
+*.gz
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
