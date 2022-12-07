@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RateLimitingService {
 
-    private final int MAX_ATTEMPT = 120;
+    private final int MAX_ATTEMPT = 600;
     private final LoadingCache<String, Integer> apiCallCache;
 
     public RateLimitingService() {
