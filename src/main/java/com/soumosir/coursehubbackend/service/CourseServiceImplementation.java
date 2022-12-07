@@ -247,7 +247,7 @@ public class CourseServiceImplementation implements CourseService{
         if(courses.size()==0){
             throw new ResourceNotFoundException(String.format("Content id %s not present in any course!",id));
         }
-        if(courses.get(0).getInstructor()==appUser.getUsername()){
+        if(courses.get(0).getInstructor().equals(appUser.getUsername())){
             return content;
         }
         if(!courses.get(0).getEnrolledUsers().contains(appUser)){
@@ -266,7 +266,7 @@ public class CourseServiceImplementation implements CourseService{
         if(courses.size()==0){
             throw new ResourceNotFoundException(String.format("Exam id %s not present in any course!",id));
         }
-        if(courses.get(0).getInstructor()==appUser.getUsername()){
+        if(courses.get(0).getInstructor().equals(appUser.getUsername())){
             return exam;
         }
         if(!courses.get(0).getEnrolledUsers().contains(appUser)){

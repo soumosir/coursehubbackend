@@ -2148,3 +2148,8 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'172.18.0.1' (us
 2022-12-07 02:26:48.194  INFO 95198 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> sdutta -> ROLE_ADMIN
 2022-12-07 02:26:48.238  INFO 95198 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> jdoe -> ROLE_INSTRUCTOR
 2022-12-07 02:26:48.258  INFO 95198 --- [restartedMain] c.s.c.service.UserServiceImplementation  : Add role to user to database -> junaid -> ROLE_INSTRUCTOR
+2022-12-07 02:38:45.728  INFO 95198 --- [https-jsse-nio-8443-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-07 02:38:45.731  INFO 95198 --- [https-jsse-nio-8443-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-07 02:38:45.749  INFO 95198 --- [https-jsse-nio-8443-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2022-12-07 02:38:45.847 ERROR 95198 --- [https-jsse-nio-8443-exec-3] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-06T02:59:12Z.
+2022-12-07 02:38:45.860 ERROR 95198 --- [https-jsse-nio-8443-exec-4] c.s.c.s.CustomAuthorizationFilter        : Error logging in: The Token has expired on 2022-12-06T02:59:12Z.
