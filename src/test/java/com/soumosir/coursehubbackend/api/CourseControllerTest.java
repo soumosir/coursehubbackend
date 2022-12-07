@@ -40,6 +40,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {CourseController.class})
 @ExtendWith(SpringExtension.class)
+@Disabled
 class CourseControllerTest {
     @Autowired
     private CourseController courseController;
