@@ -42,7 +42,7 @@ server:
     key-store-type: PKCS12
     key-alias: sduttabook
     key-password: ssldutta
-    enabled: true
+    enabled: false
 
 #trust:
 #  store:
