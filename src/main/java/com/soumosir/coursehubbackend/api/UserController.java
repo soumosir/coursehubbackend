@@ -45,6 +45,11 @@ public class UserController {
     @Autowired
     protected ForgotPasswordService forgotPasswordService;
 
+    @GetMapping("/test")
+    public ResponseEntity<String> testApp() {
+        return ResponseEntity.ok("Succesfull Call");
+    }
+
     @GetMapping("/users")
     public ResponseEntity<List<AppUserRest>> getUsers() {
         return ResponseEntity.ok().body(userService.getUsers().stream().map(AppUserRest::new).collect(Collectors.toList()));
