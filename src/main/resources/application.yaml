@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: jdbc:mysql://b7480c7572d974:1770f000@us-cdbr-east-06.cleardb.net/heroku_db3370a171a8d63?reconnect=true
-#    username: ${SPRING_DATASOURCE_USERNAME}
-#    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:mysql://localhost:3306/coursehub
+    username: root
+    password: password
+#      url: jdbc:mysql://b7480c7572d974:1770f000@us-cdbr-east-06.cleardb.net/heroku_db3370a171a8d63?reconnect=true
+
 
   jpa:
     hibernate:
@@ -42,7 +44,7 @@ server:
     key-store-type: PKCS12
     key-alias: sduttabook
     key-password: ssldutta
-    enabled: false
+    enabled: true
 
 #trust:
 #  store:
