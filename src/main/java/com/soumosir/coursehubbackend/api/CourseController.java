@@ -120,11 +120,9 @@ public class CourseController {
                         examRest.getAnswers(),
                         authentication.getPrincipal().toString());
                 Exam savedExam = courseService.saveExam(exam);
-                List<Exam> exams = (List<Exam>) course.getExams();
-                exams.add(savedExam);
-                courseDb.setExams(exams);
+                courseDb.getExams().add(savedExam);
             }
-            return ResponseEntity.created(uri).body(courseDb);
+            return ResponseEntity.created(uri).body(courseService.saveCourse(courseDb));
         }
         catch (Exception exception) {
             response.setHeader("error", exception.getMessage());
