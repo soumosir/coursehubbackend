@@ -100,9 +100,9 @@ public class CourseController {
                 throw new Exception("Course doesnot exist");
             }
             List<Content> contentRests = (List<Content>) course.getContents();
-            Content contentRest = contentRests.get(0);
 
-            if(contentRest!=null) {
+            if(contentRests.size()!=0) {
+                Content contentRest = contentRests.get(0);
                 Content content = new Content(null, contentRest.getName(),contentRest.getType(),contentRest.getUrl(),
                         authentication.getPrincipal().toString(),
                         contentRest.getDescription());
@@ -112,15 +112,17 @@ public class CourseController {
             }
 
             List<Exam> examRests = (List<Exam>) course.getExams();
-            Exam examRest = examRests.get(0);
 
-            if(examRest!=null) {
+            if(examRests.size()!=0) {
+                Exam examRest = examRests.get(0);
                 Exam exam = new Exam(null, examRest.getName(),examRest.getType(),examRest.getDuration(),
                         examRest.getQuestions(),
                         examRest.getAnswers(),
                         authentication.getPrincipal().toString());
                 Exam savedExam = courseService.saveExam(exam);
-                courseDb.getExams().add(savedExam);
+                List<Exam> exams = (List<Exam>) course.getExams();
+                exams.add(savedExam);
+                courseDb.setExams(exams);
             }
             return ResponseEntity.created(uri).body(courseDb);
         }
