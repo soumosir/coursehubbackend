@@ -87,25 +87,42 @@ public class CourseController {
     }
 
     @PostMapping("/course")
-    public ResponseEntity<Course> postCourse(@RequestBody Course course, Authentication authentication){
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
-        if(course.getInstructor()!=null && !Objects.equals(course.getInstructor(), authentication.getPrincipal().toString())){
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<Course> postCourse(@RequestBody Course course, Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+
+            URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
+            if (course.getInstructor() != null && !Objects.equals(course.getInstructor(), authentication.getPrincipal().toString())) {
+                throw new Exception("You donot have rights to edit this course!");
+            }
+
+            Collection<Content> savedContent = new ArrayList<>();
+            if(course.getContents()!=null) {
+                course.getContents().forEach(content -> {
+                    content.setUsername(authentication.getPrincipal().toString());
+                    savedContent.add(courseService.saveContent(content));
+                });
+                course.setContents(savedContent);
+            }
+            Collection<Exam> savedExam = new ArrayList<>();
+            if(course.getExams()!=null){
+                course.getExams().forEach(exam -> {
+                    exam.setUser(authentication.getPrincipal().toString());
+                    savedExam.add(courseService.saveExam(exam));
+                });
+                course.setExams(savedExam);
+            }
+            course.setInstructor(authentication.getPrincipal().toString());
+            return ResponseEntity.created(uri).body(courseService.saveCourse(course));
         }
-        Collection<Content> savedContent = new ArrayList<>();
-        course.getContents().forEach(content -> {
-            content.setUsername(authentication.getPrincipal().toString());
-            savedContent.add(courseService.saveContent(content));
-        });
-        course.setContents(savedContent);
-        Collection<Exam> savedExam = new ArrayList<>();
-        course.getExams().forEach(exam -> {
-            exam.setUser(authentication.getPrincipal().toString());
-            savedExam.add(courseService.saveExam(exam));
-        });
-        course.setExams(savedExam);
-        course.setInstructor(authentication.getPrincipal().toString());
-        return ResponseEntity.created(uri).body(courseService.saveCourse(course));
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            response.setStatus(404);
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
 
     }
 

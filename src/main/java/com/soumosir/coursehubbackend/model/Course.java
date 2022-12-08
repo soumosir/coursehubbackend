@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import javax.validation.ValidationException;
@@ -30,6 +31,7 @@ public class Course {
     @Column(unique=true)
     @NotEmpty
     @NotNull
+    @Unique
     private String code;
     @NotEmpty
     @NotNull
@@ -37,12 +39,11 @@ public class Course {
 
     private String instructor;
 
-    @NotEmpty
-    @NotNull
+
     private Timestamp startTime;
-    @NotEmpty
-    @NotNull
+
     private Timestamp endTime;
+
     @NotEmpty
     @NotNull
     private Long totalSeats;
