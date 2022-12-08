@@ -62,8 +62,8 @@ public class Content {
             throw new ValidationException("Username is should be alphanumeric A-Z , a-z or 0-9 : "+type);
         }
 
-        if(type==null ||(type!=null && (type.length()<3 || type.length()>3000))){
-            log.error("type is not valid should be more than 3 and les than 30 : "+ type );
+        if(type==null ||(type!=null && (type.length()<2 || type.length()>3000))){
+            log.error("type is not valid should be more than 2 and les than 30 : "+ type );
             throw new ValidationException("type is not valid should be more than 3 and les than 30 : "+type);
         }
 

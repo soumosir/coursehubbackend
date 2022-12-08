@@ -86,6 +86,56 @@ public class CourseController {
         return ResponseEntity.created(uri).body(courseService.saveContent(content));
     }
 
+    @PutMapping("/course")
+    public ResponseEntity<Course> editCourse(@RequestBody Course course, Authentication authentication,HttpServletResponse response) throws IOException {
+        try {
+
+            URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/course").toUriString());
+            if (course.getInstructor() != null && !Objects.equals(course.getInstructor(), authentication.getPrincipal().toString())) {
+                throw new Exception("You donot have rights to edit this course!");
+            }
+
+            Course courseDb = courseService.getCourse(course.getId());
+            if(courseDb==null){
+                throw new Exception("Course doesnot exist");
+            }
+            List<Content> contentRests = (List<Content>) course.getContents();
+            Content contentRest = contentRests.get(0);
+
+            if(contentRest!=null) {
+                Content content = new Content(null, contentRest.getName(),contentRest.getType(),contentRest.getUrl(),
+                        authentication.getPrincipal().toString(),
+                        contentRest.getDescription());
+                content.validate();
+                Content savedContent = courseService.saveContent(content);
+                courseDb.getContents().add(savedContent);
+            }
+
+            List<Exam> examRests = (List<Exam>) course.getExams();
+            Exam examRest = examRests.get(0);
+
+            if(examRest!=null) {
+                Exam exam = new Exam(null, examRest.getName(),examRest.getType(),examRest.getDuration(),
+                        examRest.getQuestions(),
+                        examRest.getAnswers(),
+                        authentication.getPrincipal().toString());
+                Exam savedExam = courseService.saveExam(exam);
+                courseDb.getExams().add(savedExam);
+            }
+            return ResponseEntity.created(uri).body(courseDb);
+        }
+        catch (Exception exception) {
+            response.setHeader("error", exception.getMessage());
+            response.setStatus(404);
+            Map<String, String> error = new HashMap<>();
+            error.put("error_message", exception.getMessage());
+            response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+            new ObjectMapper().writeValue(response.getOutputStream(), error);
+        }
+        return ResponseEntity.badRequest().build();
+
+    }
+
     @PostMapping("/course")
     public ResponseEntity<Course> postCourse(@RequestBody Course course, Authentication authentication,HttpServletResponse response) throws IOException {
         try {
