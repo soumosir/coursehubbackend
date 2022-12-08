@@ -122,7 +122,7 @@ public class CourseController {
                 Exam savedExam = courseService.saveExam(exam);
                 courseDb.getExams().add(savedExam);
             }
-            return ResponseEntity.created(uri).body(courseService.saveCourse(courseDb);
+            return ResponseEntity.created(uri).body(courseService.saveCourse(courseDb));
         }
         catch (Exception exception) {
             response.setHeader("error", exception.getMessage());
