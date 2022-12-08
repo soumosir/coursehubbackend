@@ -44,6 +44,13 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
     public AppUser saveUser(AppUser appUser) throws Exception {
 
         appUser.validate();
+
+        if(!appUserRepo.findByUsername(appUser.getUsername()).isEmpty()){
+            throw new ResourceNotFoundException("User with same username already exists!");
+        }
+        if(!appUserRepo.findByEmail(appUser.getEmail()).isEmpty()){
+            throw new ResourceNotFoundException("User with same email id already exists!");
+        }
         appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
         Role defaultrole = roleRepo.findByName("ROLE_USER");
         List<Role> roles = new ArrayList<>();

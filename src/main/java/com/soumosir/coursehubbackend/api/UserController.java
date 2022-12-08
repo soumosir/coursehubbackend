@@ -86,7 +86,7 @@ public class UserController {
             response.setHeader("error", exception.getMessage());
             response.setStatus(FORBIDDEN.value());
             Map<String, String> error = new HashMap<>();
-            error.put("error_message", exception.getMessage() + " ::  Email or Username already exists!");
+            error.put("error_message", exception.getMessage());
             response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
             new ObjectMapper().writeValue(response.getOutputStream(), error);
         }
